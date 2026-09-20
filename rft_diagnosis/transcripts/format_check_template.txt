@@ -1,0 +1,139 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+==============================================================================
+A1. Tokenizer identity & special tokens
+==============================================================================
+  model_name      : Qwen/Qwen2.5-3B-Instruct
+  tokenizer class : Qwen2Tokenizer
+  eos_token       : '<|im_end|>' (id=151645)
+  pad_token       : '<|endoftext|>' (id=151643)
+  has chat_template: True
+
+==============================================================================
+A2. Does the template actually SUPPORT `tools=`, and what keys does it read?
+==============================================================================
+  'tools'              present in template: True
+  'tool_call'          present in template: True
+  'tool_calls'         present in template: True
+  '<tool_call>'        present in template: True
+  '<tool_response>'    present in template: True
+  'arguments'          present in template: True
+  'function'           present in template: True
+  "'type'"             present in template: False
+  '"type"'             present in template: False
+  'tojson'             present in template: True
+
+  full template written to /tmp/qwen_chat_template.jinja (2507 chars) — read it directly if anything below looks off.
+
+==============================================================================
+A3. THE KEY CHECK — render the exact message dicts run_one_episode() builds
+==============================================================================
+If our assistant-tool_call dict does not round-trip into a literal
+<tool_call>{...}</tool_call> block, the model is being shown a conversation
+in a shape it was never trained on, and every later number is confounded.
+
+--- OURS (what diagnosis1_native_tools.py actually sends) --------------------
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.
+
+# Tools
+
+You may call one or more functions to assist with the user query.
+
+You are provided with function signatures within <tools></tools> XML tags:
+<tools>
+{"type": "function", "function": {"name": "search", "description": "Search the document corpus; returns the top-k passage titles and snippets.", "parameters": {"type": "object", "properties": {"query": {"type": "string", "description": "natural-language search query"}}, "required": ["query"]}}}
+{"type": "function", "function": {"name": "read", "description": "Read the full text of one passage by its exact title.", "parameters": {"type": "object", "properties": {"title": {"type": "string", "description": "the exact passage title, as returned by search"}}, "required": ["title"]}}}
+{"type": "function", "function": {"name": "answer", "description": "Commit your final answer. Answer with the SHORTEST possible phrase - usually 1-3 words: the exact entity, name, number, or 'yes'/'no'. No sentence, no explanation. Cite every passage that supports it, by its exact title in square brackets, e.g. 'American [Blue Harvest (film)] [Jane Doe (director)]'. Do not cite a passage you did not read. This ends the episode.", "parameters": {"type": "object", "properties": {"text": {"type": "string", "description": "the shortest possible answer phrase (1-3 words), with [Title] citations appended"}}, "required": ["text"]}}}
+</tools>
+
+For each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:
+<tool_call>
+{"name": <function-name>, "arguments": <args-json-object>}
+</tool_call><|im_end|>
+<|im_start|>user
+You are a research agent. Answer the question by searching a document corpus, reading the most relevant passages, then giving a short, grounded final answer. Base your answer only on what you retrieve.
+Answer with the SHORTEST possible phrase — usually 1-3 words: the exact entity, name, number, or 'yes'/'no'. No sentence, no explanation.
+Ground your answer ONLY in passages you retrieved. Do not cite a passage you did not read.
+
+Question: WHO DIRECTED BLUE HARVEST?<|im_end|>
+<|im_start|>assistant
+<tool_call>
+{"name": "search", "arguments": {"query": "Blue Harvest director", "k": 3}}
+</tool_call><|im_end|>
+<|im_start|>user
+<tool_response>
+[1] Blue Harvest (film) — a 2007 film directed by Jane Doe.
+</tool_response><|im_end|>
+<|im_start|>assistant
+
+--- CANONICAL (type=function, arguments as JSON string) ---------------------
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.
+
+# Tools
+
+You may call one or more functions to assist with the user query.
+
+You are provided with function signatures within <tools></tools> XML tags:
+<tools>
+{"type": "function", "function": {"name": "search", "description": "Search the document corpus; returns the top-k passage titles and snippets.", "parameters": {"type": "object", "properties": {"query": {"type": "string", "description": "natural-language search query"}}, "required": ["query"]}}}
+{"type": "function", "function": {"name": "read", "description": "Read the full text of one passage by its exact title.", "parameters": {"type": "object", "properties": {"title": {"type": "string", "description": "the exact passage title, as returned by search"}}, "required": ["title"]}}}
+{"type": "function", "function": {"name": "answer", "description": "Commit your final answer. Answer with the SHORTEST possible phrase - usually 1-3 words: the exact entity, name, number, or 'yes'/'no'. No sentence, no explanation. Cite every passage that supports it, by its exact title in square brackets, e.g. 'American [Blue Harvest (film)] [Jane Doe (director)]'. Do not cite a passage you did not read. This ends the episode.", "parameters": {"type": "object", "properties": {"text": {"type": "string", "description": "the shortest possible answer phrase (1-3 words), with [Title] citations appended"}}, "required": ["text"]}}}
+</tools>
+
+For each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:
+<tool_call>
+{"name": <function-name>, "arguments": <args-json-object>}
+</tool_call><|im_end|>
+<|im_start|>user
+You are a research agent. Answer the question by searching a document corpus, reading the most relevant passages, then giving a short, grounded final answer. Base your answer only on what you retrieve.
+Answer with the SHORTEST possible phrase — usually 1-3 words: the exact entity, name, number, or 'yes'/'no'. No sentence, no explanation.
+Ground your answer ONLY in passages you retrieved. Do not cite a passage you did not read.
+
+Question: WHO DIRECTED BLUE HARVEST?<|im_end|>
+<|im_start|>assistant
+<tool_call>
+{"name": "search", "arguments": "{\"query\": \"Blue Harvest director\", \"k\": 3}"}
+</tool_call><|im_end|>
+<|im_start|>user
+<tool_response>
+[1] Blue Harvest (film) — a 2007 film directed by Jane Doe.
+</tool_response><|im_end|>
+<|im_start|>assistant
+
+------------------------------------------------------------------------------
+
+  identical rendering: False
+  !! They differ. Read both blocks above and decide which one matches the
+     <tool_call> shape the template emits for the model. A mismatch here is
+     a REAL bug, not a formatting nit — it is what the model conditions on.
+
+==============================================================================
+A4. Turn boundaries — where does an assistant turn actually END?
+==============================================================================
+  generation prompt ends with: ' WHO DIRECTED BLUE HARVEST?<|im_end|>\n<|im_start|>assistant\n'
+  configured stop sequences  : ['<tool_response>', '<|im_start|>']
+  eos token                  : '<|im_end|>'
+
+  What to look for: the model ends a turn with the eos token above. If our
+  stop list does NOT include it and vLLM's own eos handling is the only thing
+  ending generation, that is fine — but a completion that ends at a `stop`
+  string instead means the turn was cut EARLY, and anything the model was
+  about to emit (e.g. a closing </tool_call>) is lost. Part B measures which
+  of these actually happens, per round, on real generations.
+
+==============================================================================
+A5. Parser contract — what _parse_tool_call() will and won't accept
+==============================================================================
+  regex: '<tool_call>\\s*(\\{.*?\\})\\s*</tool_call>'
+
+  well-formed                  -> ACCEPTED       (name='search', ok=True, known_tool=True)
+  plain prose (NATIVE finish!) -> PARSE FAILURE  (name='', ok=False, known_tool=False)
+  truncated before close       -> PARSE FAILURE  (name='', ok=False, known_tool=False)
+  prose THEN tool call         -> ACCEPTED       (name='search', ok=True, known_tool=True)
+  arguments as JSON string     -> ACCEPTED       (name='search', ok=True, known_tool=True)
+  unknown tool name            -> PARSE FAILURE  (name='finish', ok=True, known_tool=False)
+
+  Note the 'plain prose' row specifically. Under the native convention that is
+  how the model SIGNALS COMPLETION. If it reads PARSE FAILURE above, the harness
+  is rejecting correct behaviour — see this file's header.

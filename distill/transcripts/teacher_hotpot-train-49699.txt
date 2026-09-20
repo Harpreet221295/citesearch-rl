@@ -1,0 +1,54 @@
+============================================================================================
+QUESTION : One example of a teletsunami was caused by the 1964 event also known as what holiday-themed occurrence?
+GOLD     : 'Good Friday earthquake'
+EVIDENCE : ['Teletsunami', '1964 Alaska earthquake']
+============================================================================================
+
+TEACHER: gpt-4.1-mini driving the real env (our corpus answers).
+
+---------------------------------------- ROUND 0 ----------------------------------------
+
+  TEACHER WROTE:
+      Thought: Search for the 1964 event and its holiday-themed name related to a teletsunami.  
+      Action: search[1964 teletsunami holiday-themed occurrence]
+
+  parsed OK : True
+  action    : search
+
+  WE SENT BACK:
+      search results:
+      [1] Teletsunami: A teletsunami (also called an ocean-wide tsunami, distant tsunami, distant-source tsunami, far-field tsunami, or trans-ocean tsunami) is a tsunami that originates from a distant source, defined as more than 1,000 km away or three hours' tra…
+      [2] 1964 Alaska earthquake: The 1964 Alaskan earthquake, also known as the Great Alaskan earthquake and Good Friday earthquake, occurred at 5:36 PM AST on Good Friday, March 27. Across south-central Alaska, ground fissures, collapsing structures, and tsunamis resultin…
+      [3] Wildlife observation: Wildlife observation is the practice of noting the occurrence or abundance of a dead or living animal species at a specific location and time. The process of scientific wildlife observation includes the reporting of what (diagnosis of the s…
+
+---------------------------------------- ROUND 1 ----------------------------------------
+
+  TEACHER WROTE:
+      Thought: The 1964 Alaska earthquake is also called the Good Friday earthquake, a holiday-themed name. Read it to confirm.  
+      Action: read[1964 Alaska earthquake]
+
+  parsed OK : True
+  action    : read
+
+  WE SENT BACK:
+      [1964 Alaska earthquake]
+      The 1964 Alaskan earthquake, also known as the Great Alaskan earthquake and Good Friday earthquake, occurred at 5:36 PM AST on Good Friday, March 27.  Across south-central Alaska, ground fissures, collapsing structures, and tsunamis resulting from the earthquake caused about 139 deaths.
+
+---------------------------------------- ROUND 2 ----------------------------------------
+
+  TEACHER WROTE:
+      Thought: Confirmed the 1964 event is also known as the Good Friday earthquake, a holiday-themed occurrence.  
+      Action: answer[Good Friday earthquake [1964 Alaska earthquake]]
+
+  parsed OK : True
+  action    : answer
+
+  WE SENT BACK:
+      Good Friday earthquake [1964 Alaska earthquake]
+
+============================================================================================
+  final answer : 'Good Friday earthquake [1964 Alaska earthquake]'
+  scored as    : 'Good Friday earthquake'
+  gold         : 'Good Friday earthquake'
+  CORRECT      : True
+============================================================================================

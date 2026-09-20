@@ -1,0 +1,40 @@
+# secrets
+.env
+
+# virtual environments
+.venv*/
+venv/
+
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# training runs, logs, dashboards (regenerable; adapters live on the Hub)
+runs/
+wandb/
+run_*.log
+setup_pod.log
+sanity_spike.log
+prefetch.log
+rft_diagnosis/*_run.log
+rft_diagnosis/*_run_v2.log
+rft_diagnosis/diagnosis1_results.json
+
+# teacher collections and built datasets (large; the Hub copy is canonical)
+distill/teacher_collect*.json
+distill/teacher_trajectories.jsonl
+distill/*.preSplit.jsonl
+distill/runs/
+distill/sft_dataset*.pt
+distill/eval_rl_*.json.rows
+!distill/run_histories/
+
+# the merged SFT base (~6 GB, rebuildable with distill/merge_sft.py) and downloaded adapters
+sft_merged/
+sft_adapter/
+sft_adapter_correct_only/
+
+# editor / OS
+.vscode/
+.DS_Store

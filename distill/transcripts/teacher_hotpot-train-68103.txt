@@ -1,0 +1,54 @@
+============================================================================================
+QUESTION : Part of Newton is surrounded by which suburb of Adelaide, South Australia?
+GOLD     : 'Campbelltown'
+EVIDENCE : ['Newton, South Australia', 'Campbelltown, South Australia']
+============================================================================================
+
+TEACHER: gpt-4.1-mini driving the real env (our corpus answers).
+
+---------------------------------------- ROUND 0 ----------------------------------------
+
+  TEACHER WROTE:
+      Thought: Search for Newton Adelaide suburb and which suburb surrounds it.  
+      Action: search[Newton suburb Adelaide surrounded by]
+
+  parsed OK : True
+  action    : search
+
+  WE SENT BACK:
+      search results:
+      [1] Newton, South Australia: Newton is a small middle class suburb of Adelaide, South Australia situated in the Adelaide foothills northeast of the city centre. The area features a significant population of people of Italian origin. Part of the City of Campbelltown, Ne…
+      [2] Daw Park, South Australia: Daw Park is an inner southern suburb of Adelaide, Australia, in the local government area of the City of Mitcham. The suburb is divided into two parts, with a smaller exclave separated from the larger southern part by a section of Colonel L…
+      [3] St Kilda, South Australia: St Kilda is a seaside suburb in Adelaide, South Australia. St Kilda has a small number of houses and a 2006 population of 246. There is a single connecting road to the rest of Adelaide which, where the road enters the suburb's residential a…
+
+---------------------------------------- ROUND 1 ----------------------------------------
+
+  TEACHER WROTE:
+      Thought: Read the Newton, South Australia passage to find which suburb surrounds part of Newton.  
+      Action: read[Newton, South Australia]
+
+  parsed OK : True
+  action    : read
+
+  WE SENT BACK:
+      [Newton, South Australia]
+      Newton is a small middle class suburb of Adelaide, South Australia situated in the Adelaide foothills northeast of the city centre.  The area features a significant population of people of Italian origin.  Part of the City of Campbelltown, Newton is surrounded by the suburbs Paradise, Rostrevor, Athelstone and Campbelltown.
+
+---------------------------------------- ROUND 2 ----------------------------------------
+
+  TEACHER WROTE:
+      Thought: Confirmed that Newton is surrounded by Paradise, Rostrevor, Athelstone, and Campbelltown.  
+      Action: answer[Paradise, Rostrevor, Athelstone, Campbelltown [Newton, South Australia]]
+
+  parsed OK : True
+  action    : answer
+
+  WE SENT BACK:
+      Paradise, Rostrevor, Athelstone, Campbelltown [Newton, South Australia]
+
+============================================================================================
+  final answer : 'Paradise, Rostrevor, Athelstone, Campbelltown [Newton, South Australia]'
+  scored as    : 'Paradise, Rostrevor, Athelstone, Campbelltown'
+  gold         : 'Campbelltown'
+  CORRECT      : False
+============================================================================================

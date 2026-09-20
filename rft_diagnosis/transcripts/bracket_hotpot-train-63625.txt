@@ -1,0 +1,112 @@
+============================================================================================
+QUESTION :  Ms. G.O.A.T., an acronym for ""Greatest Of All Time"", is the debut mixtape by a rapper who was born and raised in which city ?
+GOLD     : 'Brooklyn'
+EVIDENCE : ['Ms. G.O.A.T.', "Lil' Kim"]
+task_id  : hotpot-train-63625
+============================================================================================
+
+BRACKET (ReAct) FORMAT. Each round the model is supposed to write:
+    Thought: <reasoning>
+    Action: <tool>[<argument>]
+Below is what it ACTUALLY wrote each round, verbatim, and what we did.
+
+---------------------------------------- ROUND 0 ----------------------------------------
+
+  MODEL WROTE:
+      Miami [search(query, k=3)]
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+---------------------------------------- ROUND 1 ----------------------------------------
+
+  MODEL WROTE:
+      Miami [search(query, k=3)]
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+---------------------------------------- ROUND 2 ----------------------------------------
+
+  MODEL WROTE:
+      Miami [search(query, k=3)]
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+---------------------------------------- ROUND 3 ----------------------------------------
+
+  MODEL WROTE:
+      Miami [search(G.O.A.T. mixtape)]
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+---------------------------------------- ROUND 4 ----------------------------------------
+
+  MODEL WROTE:
+      Miami [search(G.O.A.T. mixtape birthplace)]
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+---------------------------------------- ROUND 5 ----------------------------------------
+
+  MODEL WROTE:
+      Miami [search("G.O.A.T. mixtape" birthplace)]
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+---------------------------------------- ROUND 6 ----------------------------------------
+
+  MODEL WROTE:
+      Miami [search(G.O.A.T. mixtape artist birthplace)]
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+============================================================================================
+HOW IT ENDED
+  final answer  : None
+  ...citations stripped -> scored as: ''
+  gold answer   : 'Brooklyn'  (aliases: [])
+  CORRECT       : no
+  tools called  : []
+  thoughts      : 0
+============================================================================================

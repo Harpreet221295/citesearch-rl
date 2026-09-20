@@ -1,0 +1,53 @@
+============================================================================================
+QUESTION : Alan Whitehead is a British musician and businessman whose most successful single in the UK was a cover version of what Paul McCartney song?
+GOLD     : 'Ob-La-Di, Ob-La-Da'
+EVIDENCE : ['Alan Whitehead (drummer)', 'Ob-La-Di, Ob-La-Da']
+============================================================================================
+
+TEACHER: gpt-4.1-mini driving the real env (our corpus answers).
+
+---------------------------------------- ROUND 0 ----------------------------------------
+
+  TEACHER WROTE:
+      Thought: I need to find Alan Whitehead's most successful UK single and confirm it is a Paul McCartney cover.  
+      Action: search[Alan Whitehead musician most successful single Paul McCartney cover]
+
+  parsed OK : True
+  action    : search
+
+  WE SENT BACK:
+      search results:
+      [1] Alan Whitehead (drummer): Alan Whitehead is a British musician and businessman. He started his career in the music industry in 1966 as the drummer for Crispian St. Peters, but is best known as a member of Marmalade, whose most successful single in the UK was a cover…
+      [2] The Attack (band): The Attack were a freakbeat/psychedelic rock band formed in 1966 around singer Richard Shirman (born 26 April 1949, London Died July 2017) The first line-up featured drummer Alan Whitehead from Marmalade, guitarist David O'List (later of Th…
+      [3] James McCartney: James Louis McCartney (born 12 September 1977) is a British musician and songwriter living in London. He is the only son of songwriter and former Beatle Paul McCartney and Linda McCartney. He has contributed to a number of solo albums by hi…
+
+---------------------------------------- ROUND 1 ----------------------------------------
+
+  TEACHER WROTE:
+      Thought: The first result mentions Alan Whitehead as a Marmalade member with a most successful UK single cover; I should read it fully.  
+      Action: read[Alan Whitehead (drummer)]
+
+  parsed OK : True
+  action    : read
+
+  WE SENT BACK:
+      [Alan Whitehead (drummer)]
+      Alan Whitehead is a British musician and businessman.  He started his career in the music industry in 1966 as the drummer for Crispian St. Peters, but is best known as a member of Marmalade, whose most successful single in the UK was a cover version of the Paul McCartney song "Ob-La-Di, Ob-La-Da".  In 1969 Marmalade were signed to Decca Records and their next song "Reflections of My Life" became a number 10 hit in the USA.  Whitehead left the band in 1978 and set up his own management company, negotiating his first production contract with EMI Records.  Groups that he successfully managed were Lipps Inc., Mel and Kim, Modern Romance and Rikki Peebles.  He later went on to manage all girl groups Amazulu and Belle Stars.
+
+---------------------------------------- ROUND 2 ----------------------------------------
+
+  TEACHER WROTE:
+      Action: answer[Ob-La-Di, Ob-La-Da [Alan Whitehead (drummer)]]
+
+  parsed OK : True
+  action    : answer
+
+  WE SENT BACK:
+      Ob-La-Di, Ob-La-Da [Alan Whitehead (drummer)]
+
+============================================================================================
+  final answer : 'Ob-La-Di, Ob-La-Da [Alan Whitehead (drummer)]'
+  scored as    : 'Ob-La-Di, Ob-La-Da'
+  gold         : 'Ob-La-Di, Ob-La-Da'
+  CORRECT      : True
+============================================================================================

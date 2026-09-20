@@ -1,0 +1,1000 @@
+{
+  "breakdown": {
+    "n": 32,
+    "parse_ok_rate": 0.75,
+    "calls_read_rate": 1.0,
+    "terminated_cleanly_rate": 0.9375,
+    "correct_rate": 0.6875,
+    "mean_n_reads": 1.6875,
+    "mean_n_searches": 1.6875,
+    "mean_cite_f1": 0.6864583333333333,
+    "bucket_pct": {
+      "correct_miscited": 0.40625,
+      "wrong_answer": 0.3125,
+      "correct_and_cited": 0.28125
+    },
+    "hop_count_distribution": {
+      "3": 9,
+      "4": 9,
+      "5": 10,
+      "6": 3,
+      "7": 1
+    }
+  },
+  "raw_rows": [
+    {
+      "task_id": "hotpot-train-49699",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 1,
+      "n_searches": 1,
+      "n_tool_calls": 3,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 1,
+      "cite_f1": 0.6666666666666666,
+      "cite_precision": 1.0,
+      "cite_recall": 0.5,
+      "bucket": "correct_miscited",
+      "final_answer": "Good Friday earthquake [1964 Alaska earthquake]",
+      "gold_answer": "Good Friday earthquake",
+      "supporting_titles": [
+        "Teletsunami",
+        "1964 Alaska earthquake"
+      ],
+      "raw_turns": [
+        "Thought: Search for the 1964 event causing a teletsunami and its holiday-themed name.  \nAction: search[1964 teletsunami holiday-themed occurrence]",
+        "Thought: The 1964 Alaska earthquake is also called the Good Friday earthquake, which is a holiday-themed name. Read it to confirm.  \nAction: read[1964 Alaska earthquake]",
+        "Thought: Confirmed the 1964 event is also known as the Good Friday earthquake, a holiday-themed occurrence.  \nAction: answer[Good Friday earthquake [1964 Alaska earthquake]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "hotpot-train-49699",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 1,
+      "n_searches": 1,
+      "n_tool_calls": 3,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 1,
+      "cite_f1": 0.6666666666666666,
+      "cite_precision": 1.0,
+      "cite_recall": 0.5,
+      "bucket": "correct_miscited",
+      "final_answer": "Good Friday earthquake [1964 Alaska earthquake]",
+      "gold_answer": "Good Friday earthquake",
+      "supporting_titles": [
+        "Teletsunami",
+        "1964 Alaska earthquake"
+      ],
+      "raw_turns": [
+        "Thought: Search for the 1964 event and its holiday-themed name related to a teletsunami.  \nAction: search[1964 teletsunami holiday-themed occurrence]",
+        "Thought: Read the passage about the 1964 Alaska earthquake to confirm its holiday-themed name.  \nAction: read[1964 Alaska earthquake]",
+        "Thought: Confirmed the holiday-themed name is Good Friday earthquake, linked to the 1964 event causing a teletsunami.  \nAction: answer[Good Friday earthquake [1964 Alaska earthquake]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "hotpot-train-89670",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 1,
+      "n_searches": 1,
+      "n_tool_calls": 3,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 1,
+      "cite_f1": 0.6666666666666666,
+      "cite_precision": 1.0,
+      "cite_recall": 0.5,
+      "bucket": "correct_miscited",
+      "final_answer": "Ob-La-Di, Ob-La-Da [Alan Whitehead (drummer)]",
+      "gold_answer": "Ob-La-Di, Ob-La-Da",
+      "supporting_titles": [
+        "Alan Whitehead (drummer)",
+        "Ob-La-Di, Ob-La-Da"
+      ],
+      "raw_turns": [
+        "Thought: I need to find Alan Whitehead's most successful UK single and confirm it is a Paul McCartney cover.  \nAction: search[Alan Whitehead musician successful single Paul McCartney cover]",
+        "Thought: [1] mentions Alan Whitehead and Marmalade's most successful UK single was a cover; I need to read it to find the song title.  \nAction: read[Alan Whitehead (drummer)]",
+        "Thought: The passage confirms the song is \"Ob-La-Di, Ob-La-Da\" by Paul McCartney.  \nAction: answer[Ob-La-Di, Ob-La-Da [Alan Whitehead (drummer)]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "hotpot-train-9286",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 2,
+      "n_searches": 2,
+      "n_tool_calls": 5,
+      "terminated_cleanly": true,
+      "correct": false,
+      "n_citations": 2,
+      "cite_f1": 1.0,
+      "cite_precision": 1.0,
+      "cite_recall": 1.0,
+      "bucket": "wrong_answer",
+      "final_answer": "novels and plays [James Hanley (novelist)] crime novels [Mario Puzo]",
+      "gold_answer": "novel",
+      "supporting_titles": [
+        "James Hanley (novelist)",
+        "Mario Puzo"
+      ],
+      "raw_turns": [
+        "Thought: Search for works written by James Hanley and Mario Puzo to identify their types.  \nAction: search[James Hanley works]",
+        "Thought: Read the passage about James Hanley to confirm the types of works he wrote.  \nAction: read[James Hanley (novelist)]",
+        "Thought: Search for Mario Puzo works to identify the kind of works he wrote.  \nAction: search[Mario Puzo works]",
+        "Thought: Read the passage about Mario Puzo to confirm the types of works he wrote.  \nAction: read[Mario Puzo]",
+        "Action: answer[novels and plays [James Hanley (novelist)] crime novels [Mario Puzo]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "hotpot-train-9286",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 2,
+      "n_searches": 2,
+      "n_tool_calls": 5,
+      "terminated_cleanly": true,
+      "correct": false,
+      "n_citations": 2,
+      "cite_f1": 1.0,
+      "cite_precision": 1.0,
+      "cite_recall": 1.0,
+      "bucket": "wrong_answer",
+      "final_answer": "novels, short stories, plays [James Hanley (novelist)] crime novels [Mario Puzo]",
+      "gold_answer": "novel",
+      "supporting_titles": [
+        "James Hanley (novelist)",
+        "Mario Puzo"
+      ],
+      "raw_turns": [
+        "Thought: Search for works written by James Hanley and Mario Puzo to identify their types of works.  \nAction: search[James Hanley works]",
+        "Thought: Read the passage about James Hanley to confirm the types of works he wrote.  \nAction: read[James Hanley (novelist)]",
+        "Thought: Search for Mario Puzo's works to identify the kind of works he wrote.  \nAction: search[Mario Puzo works]",
+        "Thought: Read the passage about Mario Puzo to confirm the types of works he wrote.  \nAction: read[Mario Puzo]",
+        "Action: answer[novels, short stories, plays [James Hanley (novelist)] crime novels [Mario Puzo]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "hotpot-train-89670",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 2,
+      "n_searches": 1,
+      "n_tool_calls": 4,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 1,
+      "cite_f1": 0.6666666666666666,
+      "cite_precision": 1.0,
+      "cite_recall": 0.5,
+      "bucket": "correct_miscited",
+      "final_answer": "Ob-La-Di, Ob-La-Da [Alan Whitehead (drummer)]",
+      "gold_answer": "Ob-La-Di, Ob-La-Da",
+      "supporting_titles": [
+        "Alan Whitehead (drummer)",
+        "Ob-La-Di, Ob-La-Da"
+      ],
+      "raw_turns": [
+        "Thought: Search for Alan Whitehead's most successful single and its connection to a Paul McCartney song.  \nAction: search[Alan Whitehead most successful single Paul McCartney]",
+        "Thought: Read the passage about Alan Whitehead (drummer) to find the name of the cover single.  \nAction: read[Alan Whitehead (drummer)]",
+        "Action: read[Girlfriend (Paul McCartney song)]",
+        "Thought: The relevant cover single by Alan Whitehead's band Marmalade is \"Ob-La-Di, Ob-La-Da\" by Paul McCartney.  \nAction: answer[Ob-La-Di, Ob-La-Da [Alan Whitehead (drummer)]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "hotpot-train-63625",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 2,
+      "n_searches": 2,
+      "n_tool_calls": 5,
+      "terminated_cleanly": true,
+      "correct": false,
+      "n_citations": 1,
+      "cite_f1": 0.6666666666666666,
+      "cite_precision": 1.0,
+      "cite_recall": 0.5,
+      "bucket": "wrong_answer",
+      "final_answer": "Brooklyn, New York [Ms. G.O.A.T.] [Lil' Kim]",
+      "gold_answer": "Brooklyn",
+      "supporting_titles": [
+        "Ms. G.O.A.T.",
+        "Lil' Kim"
+      ],
+      "raw_turns": [
+        "Thought: I need to find who the rapper of Ms. G.O.A.T. is, then find their birthplace city.  \nAction: search[Ms. G.O.A.T. debut mixtape rapper]",
+        "Thought: Read the passage about Ms. G.O.A.T. to confirm the rapper and any city information.  \nAction: read[Ms. G.O.A.T.]",
+        "Thought: I need to confirm Lil' Kim's birthplace city to answer the question.  \nAction: search[Lil' Kim birthplace city]",
+        "Thought: Read the passage about Lil' Kim to confirm her birthplace city.  \nAction: read[Lil' Kim]",
+        "Action: answer[Brooklyn, New York [Ms. G.O.A.T.] [Lil' Kim]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "hotpot-train-63625",
+      "parse_ok": false,
+      "n_parse_failures": 1,
+      "calls_read": true,
+      "n_reads": 1,
+      "n_searches": 2,
+      "n_tool_calls": 4,
+      "terminated_cleanly": true,
+      "correct": false,
+      "n_citations": 1,
+      "cite_f1": 0.6666666666666666,
+      "cite_precision": 1.0,
+      "cite_recall": 0.5,
+      "bucket": "wrong_answer",
+      "final_answer": "Brooklyn, New York [Ms. G.O.A.T.] [Lil' Kim]",
+      "gold_answer": "Brooklyn",
+      "supporting_titles": [
+        "Ms. G.O.A.T.",
+        "Lil' Kim"
+      ],
+      "raw_turns": [
+        "Thought: I need to find the rapper who released Ms. G.O.A.T. and where they were born and raised.  \nAction: search[Ms. G.O.A.T. debut mixtape rapper birthplace]",
+        "Thought: [1] identifies Lil' Kim as the rapper of Ms. G.O.A.T., so I need to confirm Lil' Kim's birthplace and where she was raised.  \nAction: search[Lil' Kim birthplace and hometown]",
+        "Thought: [1] states Lil' Kim was born and raised in Brooklyn, New York.  \nAction: read[Lil' Kim]",
+        "Answer: Brooklyn, New York [Ms. G.O.A.T.] [Lil' Kim]",
+        "Thought: I have confirmed Lil' Kim was born and raised in Brooklyn, New York, so I will answer now.  \nAction: answer[Brooklyn, New York [Ms. G.O.A.T.] [Lil' Kim]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "2wiki-train-147113",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 2,
+      "n_searches": 3,
+      "n_tool_calls": 6,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 1,
+      "cite_f1": 0.4,
+      "cite_precision": 1.0,
+      "cite_recall": 0.25,
+      "bucket": "correct_miscited",
+      "final_answer": "no [Not Without Gisela] [Edward L. Cahn]",
+      "gold_answer": "no",
+      "supporting_titles": [
+        "Not Without Gisela",
+        "You Have to Run Fast",
+        "Hans Deppe",
+        "Edward L. Cahn"
+      ],
+      "raw_turns": [
+        "Thought: I need to find the directors of both films and their countries by searching and reading relevant passages.  \nAction: search[director Not Without Gisela]",
+        "Thought: [1] shows Hans Deppe directed Not Without Gisela; I need to confirm the director and country for You Have To Run Fast.  \nAction: read[Not Without Gisela]",
+        "Thought: I know Hans Deppe directed Not Without Gisela and it is West German; now I must find the director of You Have To Run Fast and their country.  \nAction: search[director You Have To Run Fast]",
+        "Thought: [1] says Edward L. Cahn directed You Have to Run Fast and it is an American film; I need to confirm Edward L. Cahn's nationality.  \nAction: read[You Have to Run Fast]",
+        "Thought: I know Edward L. Cahn directed You Have to Run Fast, an American film; I need to confirm Edward L. Cahn's nationality to compare with Hans Deppe's.  \nAction: search[Edward L. Cahn nationality]",
+        "Thought: [1] confirms Edward L. Cahn is American, while Hans Deppe is West German.  \nAction: answer[no [Not Without Gisela] [Edward L. Cahn]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "hotpot-train-4624",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 1,
+      "n_searches": 1,
+      "n_tool_calls": 3,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 1,
+      "cite_f1": 0.6666666666666666,
+      "cite_precision": 1.0,
+      "cite_recall": 0.5,
+      "bucket": "correct_miscited",
+      "final_answer": "2010 [I Gotta Get to You]",
+      "gold_answer": "2010",
+      "supporting_titles": [
+        "I Gotta Get to You",
+        "George Strait"
+      ],
+      "raw_turns": [
+        "Thought: Search for the song \"Gotta Get to You\" by George Strait to find its release year.  \nAction: search[Gotta Get to You George Strait release year]",
+        "Thought: Read the passage about \"I Gotta Get to You\" to confirm the release year.  \nAction: read[I Gotta Get to You]",
+        "Thought: Confirmed the release year of \"Gotta Get to You\" is 2010.  \nAction: answer[2010 [I Gotta Get to You]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "2wiki-train-147113",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 2,
+      "n_searches": 3,
+      "n_tool_calls": 6,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 1,
+      "cite_f1": 0.4,
+      "cite_precision": 1.0,
+      "cite_recall": 0.25,
+      "bucket": "correct_miscited",
+      "final_answer": "no [Not Without Gisela] [Edward L. Cahn]",
+      "gold_answer": "no",
+      "supporting_titles": [
+        "Not Without Gisela",
+        "You Have to Run Fast",
+        "Hans Deppe",
+        "Edward L. Cahn"
+      ],
+      "raw_turns": [
+        "Thought: I need to find the directors of both films and their countries, then compare.  \nAction: search[director of Not Without Gisela]",
+        "Thought: The director of Not Without Gisela is Hans Deppe, who is West German; I need to confirm the director and country of You Have To Run Fast.  \nAction: search[director of You Have To Run Fast]",
+        "Thought: The director of You Have To Run Fast is Edward L. Cahn, who directed an American film; I need to confirm his nationality.  \nAction: read[You Have to Run Fast]",
+        "Thought: I have the director of You Have To Run Fast as Edward L. Cahn, who directed an American film; I need to confirm Edward L. Cahn's nationality.  \nAction: search[Edward L. Cahn nationality]",
+        "Thought: Edward L. Cahn is American; Hans Deppe is West German, so they are not from the same country.  \nAction: read[Not Without Gisela]",
+        "Thought: Hans Deppe is West German and Edward L. Cahn is American, so they are from different countries.  \nAction: answer[no [Not Without Gisela] [Edward L. Cahn]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "hotpot-train-68103",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 1,
+      "n_searches": 1,
+      "n_tool_calls": 3,
+      "terminated_cleanly": true,
+      "correct": false,
+      "n_citations": 1,
+      "cite_f1": 0.6666666666666666,
+      "cite_precision": 1.0,
+      "cite_recall": 0.5,
+      "bucket": "wrong_answer",
+      "final_answer": "Paradise, Rostrevor, Athelstone, Campbelltown [Newton, South Australia]",
+      "gold_answer": "Campbelltown",
+      "supporting_titles": [
+        "Newton, South Australia",
+        "Campbelltown, South Australia"
+      ],
+      "raw_turns": [
+        "Thought: Search for Newton suburb in Adelaide and which suburb surrounds it.  \nAction: search[Newton suburb Adelaide surrounded by]",
+        "Thought: Read the Newton, South Australia passage to check which suburb surrounds part of Newton.  \nAction: read[Newton, South Australia]",
+        "Thought: Newton is surrounded by Paradise, Rostrevor, Athelstone, and Campbelltown according to the passage.  \nAction: answer[Paradise, Rostrevor, Athelstone, Campbelltown [Newton, South Australia]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "hotpot-train-68103",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 1,
+      "n_searches": 1,
+      "n_tool_calls": 3,
+      "terminated_cleanly": true,
+      "correct": false,
+      "n_citations": 1,
+      "cite_f1": 0.6666666666666666,
+      "cite_precision": 1.0,
+      "cite_recall": 0.5,
+      "bucket": "wrong_answer",
+      "final_answer": "Paradise, Rostrevor, Athelstone, Campbelltown [Newton, South Australia]",
+      "gold_answer": "Campbelltown",
+      "supporting_titles": [
+        "Newton, South Australia",
+        "Campbelltown, South Australia"
+      ],
+      "raw_turns": [
+        "Thought: Search for Newton suburb in Adelaide and which suburb surrounds it.  \nAction: search[Newton suburb Adelaide surrounded by]",
+        "Thought: Read the passage on Newton, South Australia to find which suburb surrounds it.  \nAction: read[Newton, South Australia]",
+        "Thought: Newton is surrounded by Paradise, Rostrevor, Athelstone, and Campbelltown suburbs.  \nAction: answer[Paradise, Rostrevor, Athelstone, Campbelltown [Newton, South Australia]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "hotpot-train-4624",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 1,
+      "n_searches": 1,
+      "n_tool_calls": 3,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 1,
+      "cite_f1": 0.6666666666666666,
+      "cite_precision": 1.0,
+      "cite_recall": 0.5,
+      "bucket": "correct_miscited",
+      "final_answer": "2010 [I Gotta Get to You]",
+      "gold_answer": "2010",
+      "supporting_titles": [
+        "I Gotta Get to You",
+        "George Strait"
+      ],
+      "raw_turns": [
+        "Thought: Search for the song \"Gotta Get to You\" by George Strait to find its release year.  \nAction: search[Gotta Get to You George Strait release year]",
+        "Thought: Read the passage titled \"I Gotta Get to You\" to confirm the release year of the song by George Strait.  \nAction: read[I Gotta Get to You]",
+        "Thought: Confirmed the release year of \"Gotta Get to You\" as 2010 from the passage.  \nAction: answer[2010 [I Gotta Get to You]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "2wiki-train-26372",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 2,
+      "n_searches": 1,
+      "n_tool_calls": 4,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 2,
+      "cite_f1": 1.0,
+      "cite_precision": 1.0,
+      "cite_recall": 1.0,
+      "bucket": "correct_and_cited",
+      "final_answer": "No [Atrocious (film)] [Gebo and the Shadow]",
+      "gold_answer": "no",
+      "supporting_titles": [
+        "Atrocious (film)",
+        "Gebo and the Shadow"
+      ],
+      "raw_turns": [
+        "Thought: I need to find the country of origin for both Atrocious (Film) and Gebo And The Shadow.  \nAction: search[Atrocious (film) country]",
+        "Thought: I must read both Atrocious (film) and Gebo and the Shadow to confirm their countries.  \nAction: read[Atrocious (film)]",
+        "Thought: Now I need to read Gebo and the Shadow to confirm its country.  \nAction: read[Gebo and the Shadow]",
+        "Action: answer[No [Atrocious (film)] [Gebo and the Shadow]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "2wiki-train-60906",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 2,
+      "n_searches": 2,
+      "n_tool_calls": 5,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 2,
+      "cite_f1": 1.0,
+      "cite_precision": 1.0,
+      "cite_recall": 1.0,
+      "bucket": "correct_and_cited",
+      "final_answer": "yes [The Grand Romantic] [Pride of the Blue Grass (1939 film)]",
+      "gold_answer": "yes",
+      "supporting_titles": [
+        "The Grand Romantic",
+        "Pride of the Blue Grass (1939 film)"
+      ],
+      "raw_turns": [
+        "Thought: I need to find the country of origin for both The Grand Romantic and Pride Of The Blue Grass (1939 Film).  \nAction: search[The Grand Romantic country]",
+        "Thought: The Grand Romantic is associated with American indie-pop band FUN, implying it is American; Pride of the Blue Grass (1939) is not found, but the 1954 film is American. I need to confirm Pride of the Blue Grass (1939) country.  \nAction: search[Pride Of The Blue Grass 1939 film country]",
+        "Thought: Pride of the Blue Grass (1939 film) is American; The Grand Romantic is also American.  \nAction: read[Pride of the Blue Grass (1939 film)]",
+        "Thought: I need to confirm the country of The Grand Romantic from its passage.  \nAction: read[The Grand Romantic]",
+        "Thought: The Grand Romantic is associated with American band FUN and set in the US context, confirming it is American.  \nAction: answer[yes [The Grand Romantic] [Pride of the Blue Grass (1939 film)]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "hotpot-train-9721",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 1,
+      "n_searches": 1,
+      "n_tool_calls": 3,
+      "terminated_cleanly": true,
+      "correct": false,
+      "n_citations": 1,
+      "cite_f1": 0.0,
+      "cite_precision": 0.0,
+      "cite_recall": 0.0,
+      "bucket": "wrong_answer",
+      "final_answer": "Labour Party and Co-operative Party [York Central (UK Parliament constituency)]",
+      "gold_answer": "English Labour Party",
+      "supporting_titles": [
+        "Mike Amesbury",
+        "Weaver Vale (UK Parliament constituency)"
+      ],
+      "raw_turns": [
+        "Thought: I need to identify the constituency first, then find which party represents it in the UK Parliament.  \nAction: search[UK Parliament constituency representative party]",
+        "Thought: Read the passage on York Central to confirm the party of its representative.  \nAction: read[York Central (UK Parliament constituency)]",
+        "Thought: The representative of York Central belongs to the Labour Party and the Co-operative Party.  \nAction: answer[Labour Party and Co-operative Party [York Central (UK Parliament constituency)]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "2wiki-train-26372",
+      "parse_ok": false,
+      "n_parse_failures": 1,
+      "calls_read": true,
+      "n_reads": 2,
+      "n_searches": 1,
+      "n_tool_calls": 4,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 2,
+      "cite_f1": 1.0,
+      "cite_precision": 1.0,
+      "cite_recall": 1.0,
+      "bucket": "correct_and_cited",
+      "final_answer": "no [Atrocious (film)] [Gebo and the Shadow]",
+      "gold_answer": "no",
+      "supporting_titles": [
+        "Atrocious (film)",
+        "Gebo and the Shadow"
+      ],
+      "raw_turns": [
+        "Thought: I need to find the country of origin for both Atrocious (Film) and Gebo And The Shadow.  \nAction: search[Atrocious (film) country]",
+        "Thought: I need to read both Atrocious (film) and Gebo and the Shadow to confirm their countries.  \nAction: read[Atrocious (film)]",
+        "Thought: Now I will read Gebo and the Shadow to confirm its country.  \nAction: read[Gebo and the Shadow]",
+        "Answer: no [Atrocious (film)] [Gebo and the Shadow]",
+        "Thought: I need to provide the final answer now.  \nAction: answer[no [Atrocious (film)] [Gebo and the Shadow]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "2wiki-train-31779",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 1,
+      "n_searches": 2,
+      "n_tool_calls": 4,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 2,
+      "cite_f1": 0.5,
+      "cite_precision": 0.5,
+      "cite_recall": 0.5,
+      "bucket": "correct_miscited",
+      "final_answer": "7 May 1988 [Alberto de Zaval\u00eda] [Malambo (1942 film)]",
+      "gold_answer": "7 May 1988",
+      "supporting_titles": [
+        "Malambo (1942 film)",
+        "Alberto de Zaval\u00eda"
+      ],
+      "raw_turns": [
+        "Thought: I need to find the director of Malambo (1942 Film) first.  \nAction: search[Malambo 1942 Film director]",
+        "Thought: The director is Alberto de Zaval\u00eda; now I need to find when Alberto de Zaval\u00eda died.  \nAction: search[Alberto de Zaval\u00eda death date]",
+        "Thought: I have found Alberto de Zaval\u00eda's death date in the first passage.  \nAction: read[Alberto de Zaval\u00eda]",
+        "Thought: Alberto de Zaval\u00eda died on 7 May 1988.  \nAction: answer[7 May 1988 [Alberto de Zaval\u00eda] [Malambo (1942 film)]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "hotpot-train-62408",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 1,
+      "n_searches": 1,
+      "n_tool_calls": 3,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 1,
+      "cite_f1": 0.6666666666666666,
+      "cite_precision": 1.0,
+      "cite_recall": 0.5,
+      "bucket": "correct_miscited",
+      "final_answer": "Sasha Cohen [John Nicks]",
+      "gold_answer": "Sasha Cohen",
+      "supporting_titles": [
+        "John Nicks",
+        "Sasha Cohen"
+      ],
+      "raw_turns": [
+        "Thought: I need to find which American skater coached by John Allen Wisden Nicks won the 2006 Olympic silver medal.  \nAction: search[John Allen Wisden Nicks pupils 2006 Olympic silver medalist]",
+        "Thought: [1] mentions John Nicks and his pupils including Peggy Fle, likely Peggy Fleming; [2] confirms Sasha Cohen is 2006 Olympic silver medalist; I need to confirm if Sasha Cohen was coached by John Nicks by reading [1].  \nAction: read[John Nicks]",
+        "Thought: John Nicks coached Sasha Cohen, who is the 2006 Olympic silver medalist.  \nAction: answer[Sasha Cohen [John Nicks]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "hotpot-train-62408",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 2,
+      "n_searches": 1,
+      "n_tool_calls": 4,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 2,
+      "cite_f1": 1.0,
+      "cite_precision": 1.0,
+      "cite_recall": 1.0,
+      "bucket": "correct_and_cited",
+      "final_answer": "Sasha Cohen [John Nicks] [Sasha Cohen]",
+      "gold_answer": "Sasha Cohen",
+      "supporting_titles": [
+        "John Nicks",
+        "Sasha Cohen"
+      ],
+      "raw_turns": [
+        "Thought: Search for John Allen Wisden Nicks coaching pupils and identify the 2006 Olympic silver medalist American figure skater.  \nAction: search[John Allen Wisden Nicks pupils 2006 Olympic silver medalist American figure skater]",
+        "Thought: Read the John Nicks passage to confirm his pupils and Sasha Cohen passage to confirm her 2006 Olympic silver medal status.  \nAction: read[John Nicks]",
+        "Thought: Read Sasha Cohen passage to confirm she is the 2006 Olympic silver medalist.  \nAction: read[Sasha Cohen]",
+        "Action: answer[Sasha Cohen [John Nicks] [Sasha Cohen]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "hotpot-train-9721",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 2,
+      "n_searches": 1,
+      "n_tool_calls": 4,
+      "terminated_cleanly": true,
+      "correct": false,
+      "n_citations": 2,
+      "cite_f1": 0.5,
+      "cite_precision": 0.5,
+      "cite_recall": 0.5,
+      "bucket": "wrong_answer",
+      "final_answer": "Labour Party [Weaver Vale (UK Parliament constituency)] [Walthamstow (UK Parliament constituency)]",
+      "gold_answer": "English Labour Party",
+      "supporting_titles": [
+        "Mike Amesbury",
+        "Weaver Vale (UK Parliament constituency)"
+      ],
+      "raw_turns": [
+        "Thought: I need to identify the specific constituency first by searching for constituencies in the UK House of Commons.  \nAction: search[UK House of Commons constituencies]",
+        "Thought: Weaver Vale and Walthamstow constituencies mention their MPs and parties; I should read both to confirm party affiliation.  \nAction: read[Weaver Vale (UK Parliament constituency)]",
+        "Thought: I have Weaver Vale's MP party as Labour; now read Walthamstow to confirm its party.  \nAction: read[Walthamstow (UK Parliament constituency)]",
+        "Thought: Both Weaver Vale and Walthamstow constituencies are represented by Labour Party members.  \nAction: answer[Labour Party [Weaver Vale (UK Parliament constituency)] [Walthamstow (UK Parliament constituency)]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "2wiki-train-60906",
+      "parse_ok": false,
+      "n_parse_failures": 3,
+      "calls_read": true,
+      "n_reads": 2,
+      "n_searches": 2,
+      "n_tool_calls": 4,
+      "terminated_cleanly": false,
+      "correct": false,
+      "n_citations": 0,
+      "cite_f1": 0.0,
+      "cite_precision": 0.0,
+      "cite_recall": 0.0,
+      "bucket": "wrong_answer",
+      "final_answer": null,
+      "gold_answer": "yes",
+      "supporting_titles": [
+        "The Grand Romantic",
+        "Pride of the Blue Grass (1939 film)"
+      ],
+      "raw_turns": [
+        "Thought: I need to find the country of origin for both The Grand Romantic and Pride Of The Blue Grass (1939 Film).  \nAction: search[The Grand Romantic country]",
+        "Thought: The Grand Romantic is linked to American indie-pop band FUN, implying it is American; Pride of the Blue Grass (1939) is not found, but Pride of the Blue Grass (1954) is American, so I need to confirm the 1939 film's country.  \nAction: search[Pride Of The Blue Grass 1939 film country]",
+        "Thought: I found Pride of the Blue Grass (1939 film) is American; I need to read both The Grand Romantic and Pride of the Blue Grass (1939 film) passages to confirm.  \nAction: read[The Grand Romantic]",
+        "Thought: The Grand Romantic is associated with American indie-pop band FUN, implying it is American; now I need to read Pride of the Blue Grass (1939 film) to confirm its country.  \nAction: read[Pride of the Blue Grass (1939 film)]",
+        "Answer: American [The Grand Romantic] [Pride of the Blue Grass (1939 film)]",
+        "answer[American [The Grand Romantic] [Pride of the Blue Grass (1939 film)]]",
+        "answer American [The Grand Romantic] [Pride of the Blue Grass (1939 film)]",
+        "answer[American [The Grand Romantic] [Pride of the Blue Grass (1939 film)]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "2wiki-train-31779",
+      "parse_ok": false,
+      "n_parse_failures": 1,
+      "calls_read": true,
+      "n_reads": 2,
+      "n_searches": 2,
+      "n_tool_calls": 5,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 1,
+      "cite_f1": 0.6666666666666666,
+      "cite_precision": 1.0,
+      "cite_recall": 0.5,
+      "bucket": "correct_miscited",
+      "final_answer": "7 May 1988 [Alberto de Zaval\u00eda]",
+      "gold_answer": "7 May 1988",
+      "supporting_titles": [
+        "Malambo (1942 film)",
+        "Alberto de Zaval\u00eda"
+      ],
+      "raw_turns": [
+        "Thought: Search who directed Malambo (1942 Film) to find the director's name.  \nAction: search[Malambo 1942 film director]",
+        "Thought: Read the passage about Malambo (1942 film) to confirm the director's name.  \nAction: read[Malambo (1942 film)]",
+        "Thought: Search for Alberto de Zaval\u00eda death date.  \nAction: search[Alberto de Zaval\u00eda death date]",
+        "Thought: Read the passage about Alberto de Zaval\u00eda to confirm his death date.  \nAction: read[Alberto de Zaval\u00eda]",
+        "Answer: 7 May 1988 [Alberto de Zaval\u00eda]",
+        "Thought: Provide the final answer citing the passage I read.  \nAction: answer[7 May 1988 [Alberto de Zaval\u00eda]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "2wiki-train-112061",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 2,
+      "n_searches": 2,
+      "n_tool_calls": 5,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 2,
+      "cite_f1": 1.0,
+      "cite_precision": 1.0,
+      "cite_recall": 1.0,
+      "bucket": "correct_and_cited",
+      "final_answer": "Umberto Drei [Umberto Drei] [Julie Aagaard]",
+      "gold_answer": "Umberto Drei",
+      "supporting_titles": [
+        "Umberto Drei",
+        "Julie Aagaard"
+      ],
+      "raw_turns": [
+        "Thought: Search for birth dates of Umberto Drei and Julie Aagaard to compare who was born first.  \nAction: search[Umberto Drei birth date]",
+        "Thought: Read the passage about Umberto Drei to confirm his birth date.  \nAction: read[Umberto Drei]",
+        "Thought: Search for Julie Aagaard's birth date to compare with Umberto Drei's birth date.  \nAction: search[Julie Aagaard birth date]",
+        "Thought: Read the passage about Julie Aagaard to confirm her birth date.  \nAction: read[Julie Aagaard]",
+        "Thought: Umberto Drei was born in 1925, Julie Aagaard in 1992, so Umberto Drei was born first.  \nAction: answer[Umberto Drei [Umberto Drei] [Julie Aagaard]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "2wiki-train-112061",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 2,
+      "n_searches": 2,
+      "n_tool_calls": 5,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 2,
+      "cite_f1": 1.0,
+      "cite_precision": 1.0,
+      "cite_recall": 1.0,
+      "bucket": "correct_and_cited",
+      "final_answer": "Umberto Drei [Umberto Drei] [Julie Aagaard]",
+      "gold_answer": "Umberto Drei",
+      "supporting_titles": [
+        "Umberto Drei",
+        "Julie Aagaard"
+      ],
+      "raw_turns": [
+        "Thought: I need to find birth dates for Umberto Drei and Julie Aagaard by searching and reading their respective passages.  \nAction: search[Umberto Drei birth date]",
+        "Thought: I have Umberto Drei's birth date; now I need Julie Aagaard's birth date by searching and reading her passage.  \nAction: search[Julie Aagaard birth date]",
+        "Thought: I have Julie Aagaard's birth date from the first result; now I will read both Umberto Drei and Julie Aagaard passages to confirm.  \nAction: read[Umberto Drei]",
+        "Thought: Now I will read Julie Aagaard's passage to confirm her birth date.  \nAction: read[Julie Aagaard]",
+        "Thought: Umberto Drei was born in 1925 and Julie Aagaard in 1992, so Umberto Drei was born first.  \nAction: answer[Umberto Drei [Umberto Drei] [Julie Aagaard]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "hotpot-train-8437",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 2,
+      "n_searches": 2,
+      "n_tool_calls": 5,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 2,
+      "cite_f1": 1.0,
+      "cite_precision": 1.0,
+      "cite_recall": 1.0,
+      "bucket": "correct_and_cited",
+      "final_answer": "yes [Josh Franceschi] [Park Subin]",
+      "gold_answer": "yes",
+      "supporting_titles": [
+        "Josh Franceschi",
+        "Park Subin"
+      ],
+      "raw_turns": [
+        "Thought: I need to find if Josh Franceschi is a singer and if Park Subin is a singer by searching and reading their profiles.  \nAction: search[Josh Franceschi singer]",
+        "Thought: Passage [1] clearly states Josh Franceschi is a singer; I need to search for Park Subin to confirm if she is a singer.  \nAction: read[Josh Franceschi]",
+        "Thought: Josh Franceschi is confirmed as a singer; now I will search for Park Subin to verify if she is a singer.  \nAction: search[Park Subin singer]",
+        "Thought: Passage [1] indicates Park Subin is a singer; I will read it fully to confirm.  \nAction: read[Park Subin]",
+        "Thought: Both Josh Franceschi and Park Subin are confirmed singers from their respective passages.  \nAction: answer[yes [Josh Franceschi] [Park Subin]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "hotpot-train-8437",
+      "parse_ok": false,
+      "n_parse_failures": 1,
+      "calls_read": true,
+      "n_reads": 2,
+      "n_searches": 2,
+      "n_tool_calls": 5,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 2,
+      "cite_f1": 1.0,
+      "cite_precision": 1.0,
+      "cite_recall": 1.0,
+      "bucket": "correct_and_cited",
+      "final_answer": "yes [Josh Franceschi] [Park Subin]",
+      "gold_answer": "yes",
+      "supporting_titles": [
+        "Josh Franceschi",
+        "Park Subin"
+      ],
+      "raw_turns": [
+        "Thought: Search for Josh Franceschi's profession, then for Park Subin's profession to confirm if both are singers.  \nAction: search[Josh Franceschi singer]",
+        "Thought: Read the passage about Josh Franceschi to confirm he is a singer.  \nAction: read[Josh Franceschi]",
+        "Thought: Search for Park Subin to find if she is a singer.  \nAction: search[Park Subin singer]",
+        "Thought: Read the passage about Park Subin to confirm she is a singer.  \nAction: read[Park Subin]",
+        "Answer: yes [Josh Franceschi] [Park Subin]",
+        "Thought: I need to provide the final answer using the correct format.  \nAction: answer[yes [Josh Franceschi] [Park Subin]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "hotpot-train-1982",
+      "parse_ok": false,
+      "n_parse_failures": 1,
+      "calls_read": true,
+      "n_reads": 1,
+      "n_searches": 2,
+      "n_tool_calls": 4,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 2,
+      "cite_f1": 0.5,
+      "cite_precision": 0.5,
+      "cite_recall": 0.5,
+      "bucket": "correct_miscited",
+      "final_answer": "Cupertino, California [Apple Bandai Pippin] [Apple Inc.]",
+      "gold_answer": "Cupertino, California",
+      "supporting_titles": [
+        "Apple Bandai Pippin",
+        "Apple Inc."
+      ],
+      "raw_turns": [
+        "Thought: Search for the designer of Apple Bandai Pippin to identify the company, then find its headquarters location.  \nAction: search[designer of Apple Bandai Pippin]",
+        "Thought: The designer is Apple Computer according to the first result, so now I need to find the headquarters of Apple Computer.  \nAction: search[Apple Computer headquarters]",
+        "Thought: The second result states Apple Inc. is headquartered in Cupertino, California, confirming Apple Computer's headquarters location.  \nAction: read[Apple Inc.]",
+        "Answer: Cupertino, California [Apple Inc.] [Apple Bandai Pippin]",
+        "Thought: I have confirmed the headquarters location of Apple Inc. as Cupertino, California, and Apple Computer designed the Apple Bandai Pippin.  \nAction: answer[Cupertino, California [Apple Bandai Pippin] [Apple Inc.]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "hotpot-train-1982",
+      "parse_ok": false,
+      "n_parse_failures": 1,
+      "calls_read": true,
+      "n_reads": 2,
+      "n_searches": 2,
+      "n_tool_calls": 5,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 2,
+      "cite_f1": 1.0,
+      "cite_precision": 1.0,
+      "cite_recall": 1.0,
+      "bucket": "correct_and_cited",
+      "final_answer": "Cupertino, California [Apple Bandai Pippin] [Apple Inc.]",
+      "gold_answer": "Cupertino, California",
+      "supporting_titles": [
+        "Apple Bandai Pippin",
+        "Apple Inc."
+      ],
+      "raw_turns": [
+        "Thought: Search for the designer of Apple Bandai Pippin to find the company and its headquarters location.  \nAction: search[designer of Apple Bandai Pippin]",
+        "Thought: The designer is Apple Computer according to the first search result, now read the full passage to confirm and find headquarters location.  \nAction: read[Apple Bandai Pippin]",
+        "Thought: The designer is Apple Computer; now search for the headquarters of Apple Computer.  \nAction: search[Apple Computer headquarters]",
+        "Thought: The headquarters of Apple Inc. (Apple Computer) is in Cupertino, California according to the second search result, now read it fully to confirm.  \nAction: read[Apple Inc.]",
+        "Answer: Cupertino, California [Apple Bandai Pippin] [Apple Inc.]",
+        "Action: answer[Cupertino, California [Apple Bandai Pippin] [Apple Inc.]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "2wiki-train-138326",
+      "parse_ok": true,
+      "n_parse_failures": 0,
+      "calls_read": true,
+      "n_reads": 3,
+      "n_searches": 3,
+      "n_tool_calls": 7,
+      "terminated_cleanly": true,
+      "correct": true,
+      "n_citations": 2,
+      "cite_f1": 0.6666666666666666,
+      "cite_precision": 1.0,
+      "cite_recall": 0.5,
+      "bucket": "correct_miscited",
+      "final_answer": "No [Mostofa Sarwar Farooki] [Neri Parenti]",
+      "gold_answer": "no",
+      "supporting_titles": [
+        "No Bed of Roses",
+        "Infelici e contenti",
+        "Mostofa Sarwar Farooki",
+        "Neri Parenti"
+      ],
+      "raw_turns": [
+        "Thought: I need to find the directors of both films and their nationalities by searching and reading relevant passages.  \nAction: search[director of No Bed Of Roses]",
+        "Thought: I will read the passage about Mostofa Sarwar Farooki to confirm his nationality as director of No Bed Of Roses.  \nAction: read[Mostofa Sarwar Farooki]",
+        "Thought: Now I need to find the director of Infelici E Contenti and their nationality by searching and reading relevant passages.  \nAction: search[director of Infelici E Contenti]",
+        "Thought: I will read the passage about Infelici e contenti to confirm the director and nationality.  \nAction: read[Infelici e contenti]",
+        "Thought: I need to confirm Neri Parenti's nationality by searching and reading relevant passages.  \nAction: search[Neri Parenti nationality]",
+        "Thought: I will read the passage about Neri Parenti to confirm his nationality.  \nAction: read[Neri Parenti]",
+        "Action: answer[No [Mostofa Sarwar Farooki] [Neri Parenti]]"
+      ],
+      "history": null
+    },
+    {
+      "task_id": "2wiki-train-138326",
+      "parse_ok": false,
+      "n_parse_failures": 1,
+      "calls_read": true,
+      "n_reads": 3,
+      "n_searches": 3,
+      "n_tool_calls": 6,
+      "terminated_cleanly": false,
+      "correct": false,
+      "n_citations": 0,
+      "cite_f1": 0.0,
+      "cite_precision": 0.0,
+      "cite_recall": 0.0,
+      "bucket": "wrong_answer",
+      "final_answer": null,
+      "gold_answer": "no",
+      "supporting_titles": [
+        "No Bed of Roses",
+        "Infelici e contenti",
+        "Mostofa Sarwar Farooki",
+        "Neri Parenti"
+      ],
+      "raw_turns": [
+        "Thought: Find the director and nationality of No Bed Of Roses, then of Infelici E Contenti.  \nAction: search[No Bed Of Roses director nationality]",
+        "Thought: Read the passage about Mostofa Sarwar Farooki to confirm his nationality as director of No Bed Of Roses.  \nAction: read[Mostofa Sarwar Farooki]",
+        "Thought: Search for the director and nationality of Infelici E Contenti.  \nAction: search[Infelici E Contenti director nationality]",
+        "Thought: Read the passage about Infelici e contenti to confirm the director and nationality.  \nAction: read[Infelici e contenti]",
+        "Thought: Find nationality of Neri Parenti to confirm if it matches Mostofa Sarwar Farooki's Bangladeshi nationality.  \nAction: search[Neri Parenti nationality]",
+        "Thought: Read the passage about Neri Parenti to confirm his nationality.  \nAction: read[Neri Parenti]",
+        "Answer: no [Mostofa Sarwar Farooki] [Neri Parenti]",
+        "Answer: no [Mostofa Sarwar Farooki] [Neri Parenti]"
+      ],
+      "history": null
+    }
+  ],
+  "setup": {
+    "model": "gpt-4.1-mini",
+    "n_questions": 16,
+    "k": 2,
+    "offset": 0,
+    "temperature": 0.3,
+    "max_turns": 8,
+    "format": "bracket/ReAct via DeepResearchEnv"
+  },
+  "usage": {
+    "calls": 150,
+    "prompt_tokens": 178238,
+    "completion_tokens": 5121,
+    "errors": 0,
+    "cost_usd_estimate": 0.0794888
+  }
+}

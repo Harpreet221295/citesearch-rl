@@ -1,0 +1,67 @@
+{
+  "history": [
+    {
+      "epoch": 0,
+      "step": 4,
+      "train_loss": 0.6789672131808299
+    },
+    {
+      "epoch": 1,
+      "step": 8,
+      "train_loss": 0.3402774881597461
+    },
+    {
+      "epoch": 2,
+      "step": 12,
+      "train_loss": 0.1725887699937268
+    },
+    {
+      "epoch": 3,
+      "step": 16,
+      "train_loss": 0.038128800251904654
+    },
+    {
+      "epoch": 4,
+      "step": 20,
+      "train_loss": 0.038128800251904654
+    },
+    {
+      "epoch": 5,
+      "step": 24,
+      "train_loss": 0.011894606559906366
+    },
+    {
+      "epoch": 6,
+      "step": 28,
+      "train_loss": 0.007671917809380425
+    },
+    {
+      "epoch": 7,
+      "step": 32,
+      "train_loss": 0.006558231225139217
+    }
+  ],
+  "args": {
+    "dataset": "/root/Agentic-RL-Alignment-Path/assignments/deep_research_agent/distill/sft_dataset.pt",
+    "tune_batch": false,
+    "overfit": 16,
+    "batch_size": 2,
+    "grad_accum": 2,
+    "epochs": 8,
+    "lr": 0.0002,
+    "warmup": 0.03,
+    "lora_r": 32,
+    "lora_alpha": 64,
+    "lora_dropout": 0.05,
+    "val_frac": 0.05,
+    "seed": 1234,
+    "run_name": "overfit3"
+  },
+  "dataset_config": {
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "tiers": "AB",
+    "cite_bar": 0.999,
+    "max_len": 3072,
+    "prompt": "include_worked_example=False (student prompt)"
+  }
+}

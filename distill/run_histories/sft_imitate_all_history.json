@@ -1,0 +1,39 @@
+{
+  "history": [
+    {
+      "epoch": 0,
+      "step": 160,
+      "train_loss": NaN,
+      "val_loss": 0.28119931760472966
+    },
+    {
+      "epoch": 1,
+      "step": 320,
+      "train_loss": NaN,
+      "val_loss": 0.2691833260545515
+    }
+  ],
+  "args": {
+    "dataset": "distill/sft_dataset_P.pt",
+    "tune_batch": false,
+    "overfit": 0,
+    "batch_size": 2,
+    "grad_accum": 8,
+    "epochs": 2,
+    "lr": 0.0001,
+    "warmup": 0.03,
+    "lora_r": 32,
+    "lora_alpha": 64,
+    "lora_dropout": 0.05,
+    "val_frac": 0.05,
+    "seed": 1234,
+    "run_name": "sft_P2692"
+  },
+  "dataset_config": {
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "tiers": "P",
+    "cite_bar": 0.999,
+    "max_len": 3072,
+    "prompt": "include_worked_example=False (student prompt)"
+  }
+}

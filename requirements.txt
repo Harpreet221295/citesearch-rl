@@ -1,0 +1,36 @@
+# deep_research_agent — dependencies
+#
+# The FOUNDATION (data/corpus/tools/trajectory/metrics/judge-mock + tests) is
+# stdlib-only on purpose, so `pytest -q tests/` and the offline selfcheck run with
+# nothing installed. The heavy stack below is for the training increment and is best
+# resolved ON THE POD (rLLM/verl/vllm pin tightly to CUDA/torch — see HANDOFF).
+
+# --- foundation (local sanity; mostly stdlib, these are for the real data path) ---
+pytest
+datasets>=2.19            # HotpotQA / 2WikiMultiHopQA loaders (data.py real path)
+
+# --- training stack ---
+# NOT a plain `pip install -r`-able section — the real install needs `uv` plus a
+# specific 3-step order (three separate installability bugs, hit and fixed on the pod
+# 2026-08-23; each is a real dead end, not hypothetical). See setup_pod.sh step 4 for
+# the exact working commands + full rationale for each workaround. Summary:
+#   - rLLM has no tag newer than v0.3.0-pre (2026-04-30); main's `[verl]` extra is used,
+#     overriding its stale verl==0.8.0 pin to verl==0.9.0 (fixes a numpy<2/numpy>=2
+#     conflict with vllm==0.22.1 — verl 0.8.0's base numpy<2.0.0 vs vllm's transitive
+#     numpy>=2 via opencv-python-headless).
+#   - torch must be pre-installed (torch==2.11.0, vllm==0.22.1's own exact pin) before
+#     the main install, then installed with `--no-build-isolation`, so flash-attn==2.8.3
+#     (no prebuilt wheel for torch2.11 yet -> builds from source) can see it.
+#   - `--no-build-isolation` also starves rllm-model-gateway's hatchling build dep ->
+#     pre-install hatchling too.
+# Pulls in transitively: verl==0.9.0, torch==2.11.0, torchvision==0.26.0, vllm==0.22.1,
+# flash-attn==2.8.3, transformers>=5.5.3, peft (via verl), ray.
+"rllm[verl] @ git+https://github.com/rllm-org/rllm.git@9beb6e0f676a46d38858991fd79ac5f8e0b16d4c"
+wandb                      # cloud dashboards
+python-dotenv              # .env loading (train_dr.py)
+huggingface_hub            # push_to_hub / snapshot_download (checkpoint HF mirror)
+liger-kernel               # fused Triton kernels, only imported when cfg.verl_use_liger=True
+                            # (verl lazy-imports it — see ONE_STEP_TUNING_VERL_RLLM.md §9).
+                            # Installed+tested at 0.8.2 on this pod, Qwen2.5+LoRA+FSDP, no crash.
+
+# After install: `pip freeze > pip-freeze.txt` and commit it — the source of truth.

@@ -1,0 +1,112 @@
+============================================================================================
+QUESTION : One example of a teletsunami was caused by the 1964 event also known as what holiday-themed occurrence?
+GOLD     : 'Good Friday earthquake'
+EVIDENCE : ['Teletsunami', '1964 Alaska earthquake']
+task_id  : hotpot-train-49699
+============================================================================================
+
+BRACKET (ReAct) FORMAT. Each round the model is supposed to write:
+    Thought: <reasoning>
+    Action: <tool>[<argument>]
+Below is what it ACTUALLY wrote each round, verbatim, and what we did.
+
+---------------------------------------- ROUND 0 ----------------------------------------
+
+  MODEL WROTE:
+      yes[Tafelmusik (event)]
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+---------------------------------------- ROUND 1 ----------------------------------------
+
+  MODEL WROTE:
+      yes[Tafelmusik (event)]
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+---------------------------------------- ROUND 2 ----------------------------------------
+
+  MODEL WROTE:
+      yes[Tafelmusik (event)]
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+---------------------------------------- ROUND 3 ----------------------------------------
+
+  MODEL WROTE:
+      yes[Tafelmusik (event)]
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+---------------------------------------- ROUND 4 ----------------------------------------
+
+  MODEL WROTE:
+      no
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+---------------------------------------- ROUND 5 ----------------------------------------
+
+  MODEL WROTE:
+      no
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+---------------------------------------- ROUND 6 ----------------------------------------
+
+  MODEL WROTE:
+      no
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+============================================================================================
+HOW IT ENDED
+  final answer  : None
+  ...citations stripped -> scored as: ''
+  gold answer   : 'Good Friday earthquake'  (aliases: [])
+  CORRECT       : no
+  tools called  : []
+  thoughts      : 0
+============================================================================================

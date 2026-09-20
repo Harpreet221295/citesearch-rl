@@ -1,0 +1,17 @@
+{
+  "causes": {
+    "parsed_ok": 8,
+    "plain_prose_no_tool_call": 28
+  },
+  "finish_reasons": {
+    "stop": 36
+  },
+  "total_rounds": 36,
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "temperature": 0.9,
+  "max_new_tokens": 256,
+  "stop": [
+    "<tool_response>",
+    "<|im_start|>"
+  ]
+}

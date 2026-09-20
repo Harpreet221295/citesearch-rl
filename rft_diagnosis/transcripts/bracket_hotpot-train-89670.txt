@@ -1,0 +1,112 @@
+============================================================================================
+QUESTION : Alan Whitehead is a British musician and businessman whose most successful single in the UK was a cover version of what Paul McCartney song?
+GOLD     : 'Ob-La-Di, Ob-La-Da'
+EVIDENCE : ['Alan Whitehead (drummer)', 'Ob-La-Di, Ob-La-Da']
+task_id  : hotpot-train-89670
+============================================================================================
+
+BRACKET (ReAct) FORMAT. Each round the model is supposed to write:
+    Thought: <reasoning>
+    Action: <tool>[<argument>]
+Below is what it ACTUALLY wrote each round, verbatim, and what we did.
+
+---------------------------------------- ROUND 0 ----------------------------------------
+
+  MODEL WROTE:
+      No
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+---------------------------------------- ROUND 1 ----------------------------------------
+
+  MODEL WROTE:
+      No
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+---------------------------------------- ROUND 2 ----------------------------------------
+
+  MODEL WROTE:
+      No
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+---------------------------------------- ROUND 3 ----------------------------------------
+
+  MODEL WROTE:
+      No
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+---------------------------------------- ROUND 4 ----------------------------------------
+
+  MODEL WROTE:
+      No
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+---------------------------------------- ROUND 5 ----------------------------------------
+
+  MODEL WROTE:
+      No
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+---------------------------------------- ROUND 6 ----------------------------------------
+
+  MODEL WROTE:
+      No
+
+  thought captured : ''
+  parsed OK        : False
+  action           : None
+  cause bucket     : prose_no_react_syntax
+
+  WE SENT BACK:
+      error: unknown or unparsed action. Use one of: search, read, answer.
+
+============================================================================================
+HOW IT ENDED
+  final answer  : None
+  ...citations stripped -> scored as: ''
+  gold answer   : 'Ob-La-Di, Ob-La-Da'  (aliases: [])
+  CORRECT       : no
+  tools called  : []
+  thoughts      : 0
+============================================================================================
