@@ -7,6 +7,8 @@
 ![Stack](https://img.shields.io/badge/stack-rLLM%20%2B%20veRL%20%2B%20vLLM-orange)
 ![Model](https://img.shields.io/badge/policy-Qwen2.5--3B--Instruct%20%2B%20LoRA-green)
 
+<p align="center"><img src="docs/figures/hero.svg" width="960" alt="CiteSearch-RL: a question goes to a 3B agent, which loops through search, read and think against an offline corpus, then answers with citations; the reward feeds a GRPO update"></p>
+
 A production-style pipeline that teaches `Qwen2.5-3B-Instruct` to run a multi-turn ReAct
 research loop over a document corpus: issue a search, read the passages it found, search
 again, and commit to an answer that **cites only passages it actually read**. The policy is

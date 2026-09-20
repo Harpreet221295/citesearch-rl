@@ -115,4 +115,6 @@
   <text x="50" y="604" fill="#cbd5e1" font-size="12">policy tokens: policy gradient and KL apply here</text>
   <rect x="380" y="594" width="12" height="12" rx="2" fill="#1e293b"/>
   <text x="398" y="604" fill="#cbd5e1" font-size="12">tool observations: zero gradient, zero KL. Grading them teaches the model to invent results.</text>
+  <g transform="translate(232,138)"><line x1="0" y1="-14" x2="0" y2="-22" stroke="#2dd4bf" stroke-width="2"/><circle cx="0" cy="-24" r="3" fill="#2dd4bf"/><rect x="-16" y="-14" width="32" height="26" rx="7" fill="#134e4a" stroke="#2dd4bf" stroke-width="1.5"/><circle cx="-7" cy="-3" r="3.5" fill="#5eead4"/><circle cx="7" cy="-3" r="3.5" fill="#5eead4"/><rect x="-7" y="4" width="14" height="3" rx="1.5" fill="#5eead4"/></g>
+  <g transform="translate(900,134)"><ellipse cx="0" cy="-12" rx="16" ry="5" fill="#422e0b" stroke="#fbbf24" stroke-width="1.5"/><rect x="-16" y="-12" width="32" height="20" fill="#422e0b"/><line x1="-16" y1="-12" x2="-16" y2="8" stroke="#fbbf24" stroke-width="1.5"/><line x1="16" y1="-12" x2="16" y2="8" stroke="#fbbf24" stroke-width="1.5"/><ellipse cx="0" cy="8" rx="16" ry="5" fill="#422e0b" stroke="#fbbf24" stroke-width="1.5"/><path d="M-16,-2 a16,5 0 0 0 32,0" fill="none" stroke="#fbbf24" stroke-width="1"/></g>
 </svg>
