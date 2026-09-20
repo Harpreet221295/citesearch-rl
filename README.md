@@ -80,6 +80,8 @@ Every number above is in a committed per-episode JSON under `distill/` (see *Art
 
 ## How it works
 
+<p align="center"><img src="docs/figures/react_loop.svg" width="960" alt="One episode: the ReAct research loop, and the per-token loss mask the trainer sees"></p>
+
 ```
                  ┌─────────────────────────────────────────────────────────┐
                  │  DeepResearchEnv  (env.py)                              │
@@ -119,6 +121,8 @@ Fabricated citations (titles never retrieved) are penalised separately because t
 sharpest tool-call-hacking signal. The efficiency toll ramps in late so the policy learns to
 search before it learns to be brief.
 
+<p align="center"><img src="docs/figures/reward_design.svg" width="960" alt="Reward design: outcome gated on citing the gold passages the agent actually read"></p>
+
 **Teacher distillation, done the safe way.** The teacher is not asked to *write*
 trajectories. It is dropped in as the policy of the same environment: it picks the action, the
 corpus answers, the environment does the bookkeeping. Every observation is real and every
@@ -137,6 +141,8 @@ that veRL's KL reference is the SFT policy rather than the untuned model. veRL's
 turn silently truncated 30 to 40% of trajectories and zeroed their reward in every early run
 (finding F18). Rollouts use per-turn stop sequences, and turns, reads, searches and answered
 rate are logged per step so a collapse toward answer-immediately is visible within 20 steps.
+
+<p align="center"><img src="docs/figures/training_stack.svg" width="960" alt="Training stack: rLLM agent layer over vLLM rollouts, veRL GRPO update, LoRA weights synced back each step"></p>
 
 ## Engineering
 

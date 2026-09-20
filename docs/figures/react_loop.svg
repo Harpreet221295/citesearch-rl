@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrTeal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2dd4bf"/>
+    </marker>
+    <marker id="arrAmber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#fbbf24"/>
+    </marker>
+    <marker id="arrPink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f472b6"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="620" rx="14" fill="#0b1220"/>
+  <text x="32" y="40" fill="#f8fafc" font-size="20" font-weight="700">One episode: a ReAct research loop over a document corpus</text>
+  <text x="32" y="62" fill="#94a3b8" font-size="13">One question = one episode. The policy alternates Thought/Action turns with tool observations,</text>
+  <text x="32" y="79" fill="#94a3b8" font-size="13">up to 8 tool calls, then commits an answer that cites the passages it read.</text>
+
+  <!-- POLICY box -->
+  <rect x="32" y="100" width="230" height="376" rx="12" fill="#0f2a2a" stroke="#2dd4bf" stroke-width="1.5"/>
+  <text x="48" y="126" fill="#2dd4bf" font-size="12" font-weight="700" letter-spacing="1">POLICY</text>
+  <text x="48" y="150" fill="#f8fafc" font-size="15" font-weight="600">Qwen2.5-3B-Instruct</text>
+  <text x="48" y="170" fill="#cbd5e1" font-size="13">+ LoRA (SFT r=32 merged,</text>
+  <text x="48" y="188" fill="#cbd5e1" font-size="13">   RL r=16 on top)</text>
+  <line x1="48" y1="204" x2="246" y2="204" stroke="#1e3a3a"/>
+  <text x="48" y="226" fill="#94a3b8" font-size="12">emits, each turn:</text>
+  <rect x="48" y="236" width="198" height="26" rx="6" fill="#134e4a"/>
+  <text x="58" y="253" fill="#ccfbf1" font-size="12" font-family="Menlo, Consolas, monospace">Thought: …</text>
+  <rect x="48" y="268" width="198" height="26" rx="6" fill="#134e4a"/>
+  <text x="58" y="285" fill="#ccfbf1" font-size="12" font-family="Menlo, Consolas, monospace">Action: search[query]</text>
+  <rect x="48" y="300" width="198" height="26" rx="6" fill="#134e4a"/>
+  <text x="58" y="317" fill="#ccfbf1" font-size="12" font-family="Menlo, Consolas, monospace">Action: read[title]</text>
+  <rect x="48" y="332" width="198" height="26" rx="6" fill="#134e4a"/>
+  <text x="58" y="349" fill="#ccfbf1" font-size="12" font-family="Menlo, Consolas, monospace">Action: answer[text [Title]]</text>
+  <text x="48" y="392" fill="#94a3b8" font-size="12">sampled by vLLM, T = 0.9,</text>
+  <text x="48" y="410" fill="#94a3b8" font-size="12">per-turn stop sequences,</text>
+  <text x="48" y="428" fill="#94a3b8" font-size="12">one generate() call per round</text>
+  <text x="48" y="446" fill="#94a3b8" font-size="12">across all active episodes</text>
+
+  <!-- ENV box -->
+  <rect x="698" y="100" width="230" height="376" rx="12" fill="#2a1f0a" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="714" y="126" fill="#fbbf24" font-size="12" font-weight="700" letter-spacing="1">ENVIRONMENT</text>
+  <text x="714" y="150" fill="#f8fafc" font-size="15" font-weight="600">DeepResearchEnv</text>
+  <text x="714" y="170" fill="#cbd5e1" font-size="13">per-question corpus: ~10</text>
+  <text x="714" y="188" fill="#cbd5e1" font-size="13">passages, 2 gold + 8 distractors</text>
+  <text x="714" y="206" fill="#cbd5e1" font-size="13">BM25, offline, deterministic</text>
+  <line x1="714" y1="222" x2="912" y2="222" stroke="#3b2f10"/>
+  <text x="714" y="244" fill="#94a3b8" font-size="12">tools (never raise, return text):</text>
+  <rect x="714" y="254" width="198" height="26" rx="6" fill="#422e0b"/>
+  <text x="724" y="271" fill="#fef3c7" font-size="12" font-family="Menlo, Consolas, monospace">search → 3 titles+snippets</text>
+  <rect x="714" y="286" width="198" height="26" rx="6" fill="#422e0b"/>
+  <text x="724" y="303" fill="#fef3c7" font-size="12" font-family="Menlo, Consolas, monospace">read   → full passage</text>
+  <rect x="714" y="318" width="198" height="26" rx="6" fill="#422e0b"/>
+  <text x="724" y="335" fill="#fef3c7" font-size="12" font-family="Menlo, Consolas, monospace">answer → episode ends</text>
+  <text x="714" y="378" fill="#94a3b8" font-size="12">records which titles were READ,</text>
+  <text x="714" y="396" fill="#94a3b8" font-size="12">then scores the final answer</text>
+  <text x="714" y="414" fill="#94a3b8" font-size="12">(reward.py, rule-based)</text>
+
+  <!-- Timeline -->
+  <text x="480" y="120" fill="#e2e8f0" font-size="13" font-weight="600" text-anchor="middle">a canonical 5-call episode (69% of RL episodes)</text>
+
+  <g font-size="12">
+    <line x1="270" y1="156" x2="690" y2="156" stroke="#2dd4bf" stroke-width="1.5" marker-end="url(#arrTeal)"/>
+    <text x="480" y="150" fill="#ccfbf1" text-anchor="middle" font-family="Menlo, Consolas, monospace">search[director of the film Blue Harvest]</text>
+
+    <line x1="690" y1="188" x2="270" y2="188" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrAmber)"/>
+    <text x="480" y="204" fill="#fde68a" text-anchor="middle">3 titles + snippets · masked, no gradient</text>
+
+    <line x1="270" y1="232" x2="690" y2="232" stroke="#2dd4bf" stroke-width="1.5" marker-end="url(#arrTeal)"/>
+    <text x="480" y="226" fill="#ccfbf1" text-anchor="middle" font-family="Menlo, Consolas, monospace">read[Blue Harvest (film)]</text>
+
+    <line x1="690" y1="264" x2="270" y2="264" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrAmber)"/>
+    <text x="480" y="280" fill="#fde68a" text-anchor="middle">full passage · masked</text>
+
+    <line x1="270" y1="308" x2="690" y2="308" stroke="#2dd4bf" stroke-width="1.5" marker-end="url(#arrTeal)"/>
+    <text x="480" y="302" fill="#ccfbf1" text-anchor="middle" font-family="Menlo, Consolas, monospace">search[Jane Doe director birthplace]</text>
+
+    <line x1="690" y1="340" x2="270" y2="340" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrAmber)"/>
+    <text x="480" y="356" fill="#fde68a" text-anchor="middle">3 titles + snippets · masked</text>
+
+    <line x1="270" y1="384" x2="690" y2="384" stroke="#2dd4bf" stroke-width="1.5" marker-end="url(#arrTeal)"/>
+    <text x="480" y="378" fill="#ccfbf1" text-anchor="middle" font-family="Menlo, Consolas, monospace">read[Jane Doe (director)]</text>
+
+    <line x1="690" y1="416" x2="270" y2="416" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrAmber)"/>
+    <text x="480" y="432" fill="#fde68a" text-anchor="middle">full passage · masked</text>
+
+    <line x1="270" y1="460" x2="690" y2="460" stroke="#2dd4bf" stroke-width="1.5" marker-end="url(#arrTeal)"/>
+    <text x="480" y="454" fill="#ccfbf1" text-anchor="middle" font-family="Menlo, Consolas, monospace">answer[Canada [Blue Harvest (film)] [Jane Doe (director)]]</text>
+  </g>
+
+  <!-- reward callout -->
+  <line x1="813" y1="476" x2="813" y2="492" stroke="#f472b6" stroke-width="1.5" marker-end="url(#arrPink)"/>
+  <rect x="300" y="492" width="628" height="26" rx="13" fill="#3f1d2e" stroke="#f472b6"/>
+  <text x="614" y="509" fill="#fbcfe8" font-size="12" text-anchor="middle" font-weight="600">terminal reward = was it correct?  ×  did it cite the gold passages it actually READ?</text>
+
+  <!-- Mask strip -->
+  <text x="32" y="546" fill="#e2e8f0" font-size="13" font-weight="600">What the training loss sees: one merged row per episode, with a per-token mask</text>
+  <g>
+    <rect x="32"  y="556" width="70"  height="26" rx="4" fill="#1e293b"/>
+    <text x="67"  y="573" fill="#94a3b8" font-size="11" text-anchor="middle">prompt</text>
+    <rect x="104" y="556" width="120" height="26" rx="4" fill="#134e4a" stroke="#2dd4bf"/>
+    <text x="164" y="573" fill="#ccfbf1" font-size="11" text-anchor="middle">Thought + search[…]</text>
+    <rect x="226" y="556" width="130" height="26" rx="4" fill="#1e293b"/>
+    <text x="291" y="573" fill="#94a3b8" font-size="11" text-anchor="middle">search results (masked)</text>
+    <rect x="358" y="556" width="100" height="26" rx="4" fill="#134e4a" stroke="#2dd4bf"/>
+    <text x="408" y="573" fill="#ccfbf1" font-size="11" text-anchor="middle">read[…]</text>
+    <rect x="460" y="556" width="150" height="26" rx="4" fill="#1e293b"/>
+    <text x="535" y="573" fill="#94a3b8" font-size="11" text-anchor="middle">passage text (masked)</text>
+    <rect x="612" y="556" width="80" height="26" rx="4" fill="#134e4a" stroke="#2dd4bf"/>
+    <text x="652" y="573" fill="#ccfbf1" font-size="11" text-anchor="middle">…</text>
+    <rect x="694" y="556" width="234" height="26" rx="4" fill="#134e4a" stroke="#2dd4bf"/>
+    <text x="811" y="573" fill="#ccfbf1" font-size="11" text-anchor="middle">answer[… [Title] [Title]]</text>
+  </g>
+  <rect x="32" y="594" width="12" height="12" rx="2" fill="#134e4a" stroke="#2dd4bf"/>
+  <text x="50" y="604" fill="#cbd5e1" font-size="12">policy tokens: policy gradient and KL apply here</text>
+  <rect x="380" y="594" width="12" height="12" rx="2" fill="#1e293b"/>
+  <text x="398" y="604" fill="#cbd5e1" font-size="12">tool observations: zero gradient, zero KL. Grading them teaches the model to invent results.</text>
+</svg>
