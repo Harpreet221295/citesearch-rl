@@ -79,19 +79,19 @@
   <rect x="48" y="404" width="250" height="146" rx="10" fill="#1e1638" stroke="#3b2d63"/>
   <text x="64" y="428" fill="#f8fafc" font-size="14" font-weight="600">GRPO advantage</text>
   <text x="64" y="450" fill="#cbd5e1" font-size="12">group-relative, per question:</text>
-  <text x="64" y="470" fill="#e9d5ff" font-size="12" font-family="Menlo, Consolas, monospace">Â = (r − mean_G) / (std_G + ε)</text>
-  <text x="64" y="492" fill="#cbd5e1" font-size="12">G = 16 rollouts of the same question</text>
-  <text x="64" y="510" fill="#94a3b8" font-size="12">all-equal groups carry no gradient;</text>
-  <text x="64" y="528" fill="#94a3b8" font-size="12">dead-group % is logged every step</text>
+  <text x="64" y="476" fill="#e9d5ff" font-size="15" font-family="'STIX Two Math','Cambria Math','Latin Modern Math','Times New Roman',serif"><tspan font-style="italic">Â</tspan><tspan baseline-shift="sub" font-size="9">i</tspan> =</text><text x="160" y="468" fill="#e9d5ff" font-size="13" font-family="'STIX Two Math','Cambria Math','Latin Modern Math','Times New Roman',serif" text-anchor="middle"><tspan font-style="italic">r</tspan><tspan baseline-shift="sub" font-size="9">i</tspan> − <tspan font-style="italic">μ</tspan><tspan baseline-shift="sub" font-size="9">G</tspan></text><line x1="120" y1="473" x2="200" y2="473" stroke="#e9d5ff" stroke-width="1"/><text x="160" y="487" fill="#e9d5ff" font-size="13" font-family="'STIX Two Math','Cambria Math','Latin Modern Math','Times New Roman',serif" text-anchor="middle"><tspan font-style="italic">σ</tspan><tspan baseline-shift="sub" font-size="9">G</tspan> + <tspan font-style="italic">ε</tspan></text>
+  <text x="64" y="506" fill="#cbd5e1" font-size="12"><tspan font-style="italic">G</tspan> = 16 rollouts of the same question</text>
+  <text x="64" y="522" fill="#94a3b8" font-size="12">all-equal groups carry no gradient;</text>
+  <text x="64" y="538" fill="#94a3b8" font-size="12">dead-group % is logged every step</text>
 
   <!-- Actor update -->
   <rect x="330" y="404" width="250" height="146" rx="10" fill="#1e1638" stroke="#3b2d63"/>
   <text x="346" y="428" fill="#f8fafc" font-size="14" font-weight="600">Actor update (FSDP)</text>
   <text x="346" y="450" fill="#cbd5e1" font-size="12">masked policy gradient over policy</text>
   <text x="346" y="468" fill="#cbd5e1" font-size="12">tokens only, plus KL to the reference</text>
-  <text x="346" y="490" fill="#e9d5ff" font-size="12" font-family="Menlo, Consolas, monospace">L = −Â·log π + 0.01·KL(π ‖ π_SFT)</text>
-  <text x="346" y="512" fill="#cbd5e1" font-size="12">trainable: LoRA r=16, lr 5e-5</text>
-  <text x="346" y="530" fill="#94a3b8" font-size="12">Liger fused kernels, response len 4096</text>
+  <text x="346" y="490" fill="#e9d5ff" font-size="14" font-family="'STIX Two Math','Cambria Math','Latin Modern Math','Times New Roman',serif"><tspan font-style="italic">L</tspan> = − <tspan font-style="italic">Â</tspan><tspan baseline-shift="sub" font-size="9">i</tspan> · log <tspan font-style="italic">π</tspan><tspan baseline-shift="sub" font-size="9">θ</tspan>(<tspan font-style="italic">y</tspan><tspan baseline-shift="sub" font-size="9">t</tspan> | <tspan font-style="italic">y</tspan><tspan baseline-shift="sub" font-size="9">&lt;t</tspan>)</text><text x="346" y="508" fill="#e9d5ff" font-size="14" font-family="'STIX Two Math','Cambria Math','Latin Modern Math','Times New Roman',serif">&#160;&#160;&#160;&#160;&#160;+ <tspan font-style="italic">β</tspan><tspan baseline-shift="sub" font-size="9">KL</tspan> · KL(<tspan font-style="italic">π</tspan><tspan baseline-shift="sub" font-size="9">θ</tspan> ‖ <tspan font-style="italic">π</tspan><tspan baseline-shift="sub" font-size="9">SFT</tspan>),&#160; <tspan font-style="italic">β</tspan><tspan baseline-shift="sub" font-size="9">KL</tspan> = 0.01</text>
+  <text x="346" y="526" fill="#cbd5e1" font-size="12">LoRA r=16, lr 5e-5, Liger kernels</text>
+  <text x="346" y="542" fill="#94a3b8" font-size="12">policy tokens only; observations masked</text>
 
   <!-- Reference -->
   <rect x="612" y="404" width="300" height="146" rx="10" fill="#1e1638" stroke="#3b2d63"/>

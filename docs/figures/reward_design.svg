@@ -24,26 +24,26 @@
   <text x="48" y="208" fill="#f8fafc" font-size="14" font-weight="600">Is the answer right?</text>
   <text x="48" y="230" fill="#cbd5e1" font-size="12">strip the [citations], exact-match against the gold</text>
   <text x="48" y="248" fill="#cbd5e1" font-size="12">answer (aliases accepted where the dataset has them)</text>
-  <text x="48" y="280" fill="#e0f2fe" font-size="13" font-family="Menlo, Consolas, monospace">outcome ∈ {0, 1}</text>
+  <text x="48" y="280" fill="#e0f2fe" font-size="15" font-family="'STIX Two Math','Cambria Math','Latin Modern Math','Times New Roman',serif"><tspan font-style="italic">o</tspan> ∈ {0, 1}</text>
   <text x="48" y="300" fill="#94a3b8" font-size="12">token-F1 is logged alongside; the reward uses exact match</text>
 
   <!-- Grounding check -->
   <rect x="480" y="162" width="448" height="150" rx="10" fill="#2a1f0a" stroke="#fbbf24"/>
   <text x="496" y="186" fill="#fbbf24" font-size="11" font-weight="700" letter-spacing="1">GROUNDING  (citations.py)</text>
   <text x="496" y="208" fill="#f8fafc" font-size="14" font-weight="600">Did it cite what it read, and was that the evidence?</text>
-  <text x="496" y="232" fill="#fef3c7" font-size="12" font-family="Menlo, Consolas, monospace">TP = cited ∧ gold ∧ read      FP = any other citation</text>
-  <text x="496" y="250" fill="#fef3c7" font-size="12" font-family="Menlo, Consolas, monospace">FN = a gold passage never cited</text>
-  <text x="496" y="280" fill="#fef3c7" font-size="13" font-family="Menlo, Consolas, monospace">citation_F1 = 2·TP / (2·TP + FP + FN)</text>
-  <text x="496" y="300" fill="#94a3b8" font-size="12">fabricated = cited a title the agent never retrieved at all</text>
+  <text x="496" y="232" fill="#fef3c7" font-size="13" font-family="'STIX Two Math','Cambria Math','Latin Modern Math','Times New Roman',serif">TP = cited ∧ gold ∧ read,&#160;&#160;&#160;FP = any other cited title</text>
+  <text x="496" y="250" fill="#fef3c7" font-size="13" font-family="'STIX Two Math','Cambria Math','Latin Modern Math','Times New Roman',serif">FN = a gold passage never cited</text>
+  <text x="496" y="284" fill="#fef3c7" font-size="15" font-family="'STIX Two Math','Cambria Math','Latin Modern Math','Times New Roman',serif"><tspan font-style="italic">F</tspan><tspan baseline-shift="sub" font-size="10">1</tspan><tspan baseline-shift="sub" font-size="9">cite</tspan> =</text><text x="626" y="276" fill="#fef3c7" font-size="13" font-family="'STIX Two Math','Cambria Math','Latin Modern Math','Times New Roman',serif" text-anchor="middle">2·TP</text><line x1="576" y1="281" x2="676" y2="281" stroke="#fef3c7" stroke-width="1"/><text x="626" y="295" fill="#fef3c7" font-size="13" font-family="'STIX Two Math','Cambria Math','Latin Modern Math','Times New Roman',serif" text-anchor="middle">2·TP + FP + FN</text>
+  <text x="496" y="305" fill="#94a3b8" font-size="11"><tspan font-style="italic">n</tspan><tspan baseline-shift="sub" font-size="9">fab</tspan> = citations to titles the agent never retrieved at all</text>
 
   <!-- Formula -->
   <line x1="240" y1="312" x2="240" y2="334" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#r)"/>
   <line x1="700" y1="312" x2="700" y2="334" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#r)"/>
   <rect x="32" y="336" width="896" height="96" rx="10" fill="#3f1d2e" stroke="#f472b6" stroke-width="1.5"/>
   <text x="48" y="360" fill="#f472b6" font-size="11" font-weight="700" letter-spacing="1">REWARD  (reward.py, mode = cite_gated)</text>
-  <text x="48" y="386" fill="#fce7f3" font-size="14" font-family="Menlo, Consolas, monospace">r = 0                                     if the answer cites nothing</text>
-  <text x="48" y="406" fill="#fce7f3" font-size="14" font-family="Menlo, Consolas, monospace">r = outcome × (0.5 + 0.5·citation_F1) − 0.25·fabricated − 0.1·format_err − λ_eff(step)·turns</text>
-  <text x="48" y="424" fill="#f9a8d4" font-size="11">the efficiency toll ramps in late (0 → 0.02 per turn) so the policy learns to search before it learns to be brief</text>
+  <text x="48" y="384" fill="#fce7f3" font-size="16" font-family="'STIX Two Math','Cambria Math','Latin Modern Math','Times New Roman',serif"><tspan font-style="italic">r</tspan> = 0</text><text x="300" y="384" fill="#f9a8d4" font-size="12">if the answer cites nothing</text>
+  <text x="48" y="408" fill="#fce7f3" font-size="16" font-family="'STIX Two Math','Cambria Math','Latin Modern Math','Times New Roman',serif"><tspan font-style="italic">r</tspan> = <tspan font-style="italic">o</tspan> · ( <tspan font-style="italic">β</tspan> + (1 − <tspan font-style="italic">β</tspan>) · <tspan font-style="italic">F</tspan><tspan baseline-shift="sub" font-size="10">1</tspan><tspan baseline-shift="sub" font-size="9">cite</tspan> ) − <tspan font-style="italic">w</tspan><tspan baseline-shift="sub" font-size="9">fab</tspan> · <tspan font-style="italic">n</tspan><tspan baseline-shift="sub" font-size="9">fab</tspan> − <tspan font-style="italic">λ</tspan><tspan baseline-shift="sub" font-size="9">fmt</tspan> · <tspan font-style="italic">n</tspan><tspan baseline-shift="sub" font-size="9">fmt</tspan> − <tspan font-style="italic">λ</tspan><tspan baseline-shift="sub" font-size="9">eff</tspan>(<tspan font-style="italic">t</tspan>) · <tspan font-style="italic">n</tspan><tspan baseline-shift="sub" font-size="9">turns</tspan></text><text x="300" y="408" fill="#f9a8d4" font-size="12" dx="470">otherwise</text>
+  <text x="48" y="426" fill="#f9a8d4" font-size="11"><tspan font-style="italic">o</tspan> = exact-match outcome ∈ {0,1} · <tspan font-style="italic">β</tspan> = 0.5 · <tspan font-style="italic">w</tspan><tspan baseline-shift="sub" font-size="8">fab</tspan> = 0.25 · <tspan font-style="italic">λ</tspan><tspan baseline-shift="sub" font-size="8">fmt</tspan> = 0.1 · <tspan font-style="italic">λ</tspan><tspan baseline-shift="sub" font-size="8">eff</tspan>(<tspan font-style="italic">t</tspan>) ramps 0 → 0.02 per turn late in training, so the policy learns to search before it learns to be brief</text>
 
   <!-- Examples -->
   <text x="32" y="462" fill="#e2e8f0" font-size="13" font-weight="600">Three answers to the same question. Only the last one is research.</text>
@@ -53,19 +53,19 @@
     <text x="48" y="496" fill="#f8fafc" font-weight="600">A · right answer, no citation</text>
     <text x="48" y="516" fill="#cbd5e1" font-family="Menlo, Consolas, monospace">answer[Canada]</text>
     <text x="48" y="538" fill="#94a3b8">searched once, never read, guessed</text>
-    <text x="48" y="566" fill="#fca5a5" font-weight="700" font-size="14">r = 0</text>
+    <text x="48" y="566" fill="#fca5a5" font-weight="700" font-size="15" font-family="'STIX Two Math','Cambria Math','Latin Modern Math','Times New Roman',serif"><tspan font-style="italic">r</tspan> = 0</text>
 
     <rect x="340" y="474" width="280" height="104" rx="10" fill="#1e293b" stroke="#334155"/>
     <text x="356" y="496" fill="#f8fafc" font-weight="600">B · right answer, cited but never read</text>
     <text x="356" y="516" fill="#cbd5e1" font-family="Menlo, Consolas, monospace">answer[Canada [Jane Doe (director)]]</text>
     <text x="356" y="538" fill="#94a3b8">saw the title in a snippet, did not open it</text>
-    <text x="356" y="566" fill="#fcd34d" font-weight="700" font-size="14">r = 1 × (0.5 + 0.5 × 0) = 0.5</text>
+    <text x="356" y="566" fill="#fcd34d" font-weight="700" font-size="15" font-family="'STIX Two Math','Cambria Math','Latin Modern Math','Times New Roman',serif"><tspan font-style="italic">r</tspan> = 1 · (0.5 + 0.5 · 0) = 0.5</text>
 
     <rect x="648" y="474" width="280" height="104" rx="10" fill="#0f2a2a" stroke="#2dd4bf"/>
     <text x="664" y="496" fill="#f8fafc" font-weight="600">C · right answer, read + cited both gold</text>
     <text x="664" y="516" fill="#ccfbf1" font-family="Menlo, Consolas, monospace">answer[Canada [Blue…] [Jane…]]</text>
     <text x="664" y="538" fill="#94a3b8">search → read → search → read → answer</text>
-    <text x="664" y="566" fill="#5eead4" font-weight="700" font-size="14">r = 1 × (0.5 + 0.5 × 1) = 1.0</text>
+    <text x="664" y="566" fill="#5eead4" font-weight="700" font-size="15" font-family="'STIX Two Math','Cambria Math','Latin Modern Math','Times New Roman',serif"><tspan font-style="italic">r</tspan> = 1 · (0.5 + 0.5 · 1) = 1.0</text>
   </g>
   <g transform="translate(420,184)"><circle cx="0" cy="0" r="10" fill="#10b981"/><path d="M-5,0 l4,4 l7,-8" fill="none" stroke="#052e16" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g>
   <g transform="translate(900,186)"><circle cx="-3" cy="-3" r="8" fill="none" stroke="#fde68a" stroke-width="3"/><line x1="3" y1="3" x2="11" y2="11" stroke="#fde68a" stroke-width="4" stroke-linecap="round"/></g>

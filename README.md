@@ -109,19 +109,34 @@ dependency-free BM25. It makes every episode deterministic and offline, and the 
 supporting titles give a free retrieval metric. The same design absorbs a new dataset as a
 new loader and nothing else, which is how MuSiQue was added in one afternoon.
 
-**Reward.** Rule-based, no judge model in the training loop:
+**Reward.** Rule-based, no judge model in the training loop. For a trajectory $\tau$ with
+exact-match outcome $o \in \{0, 1\}$:
 
-```
-r = 0                                             if the answer cites nothing
-r = correct × (floor + (1 − floor) × citation_F1)  otherwise
-    − w_fab × fabricated_citations − λ_fmt × format_errors − λ_eff(step) × turns
-```
+$$
+r(\tau) =
+\begin{cases}
+0 & \text{if the answer cites nothing} \\[4pt]
+o \cdot \big(\beta + (1 - \beta)\, F_1^{\text{cite}}\big)
+\;-\; w_{\text{fab}}\, n_{\text{fab}}
+\;-\; \lambda_{\text{fmt}}\, n_{\text{fmt}}
+\;-\; \lambda_{\text{eff}}(t)\, n_{\text{turns}} & \text{otherwise}
+\end{cases}
+$$
 
-`citation_F1` counts a cited title as a true positive only if it is gold **and** the agent
-called `read` on it. A right answer with no evidence trail earns the floor, not full credit.
-Fabricated citations (titles never retrieved) are penalised separately because they are the
-sharpest tool-call-hacking signal. The efficiency toll ramps in late so the policy learns to
-search before it learns to be brief.
+with $\beta = 0.5$, $w_{\text{fab}} = 0.25$, $\lambda_{\text{fmt}} = 0.1$, and
+$\lambda_{\text{eff}}(t)$ ramping linearly from $0$ to $0.02$ per turn late in training.
+The grounding term is a citation F1 against the question's gold supporting passages, where a
+cited title only counts as a true positive if the agent actually **read** it:
+
+$$
+\text{TP} = \text{cited} \wedge \text{gold} \wedge \text{read}, \qquad
+F_1^{\text{cite}} = \frac{2\,\text{TP}}{2\,\text{TP} + \text{FP} + \text{FN}}
+$$
+
+A right answer with no evidence trail earns the floor $\beta$, not full credit. Fabricated
+citations ($n_{\text{fab}}$: titles the agent never retrieved) are penalised separately
+because they are the sharpest tool-call-hacking signal. The efficiency toll ramps in late so
+the policy learns to search before it learns to be brief.
 
 <p align="center"><img src="docs/figures/reward_design.svg" width="960" alt="Reward design: outcome gated on citing the gold passages the agent actually read"></p>
 
@@ -136,6 +151,21 @@ cannot finish.
 which stage (`heldout_eval` · `sft_collect` · `sft_dev` · `rl_train` · `musique_dev`), pinned
 to one draw and asserted disjoint. Teacher collection was verified to sit 100% inside its
 split with zero leakage into the RL pool or the held-out set.
+
+**The RL objective.** GRPO with a group of $G = 16$ rollouts per question. Each trajectory's
+advantage is its reward standardised within its group, and the loss is a masked policy
+gradient over the policy's own tokens $T$ (tool observations are excluded) plus a KL term to
+the SFT policy:
+
+$$
+\hat A_i = \frac{r_i - \mu_G}{\sigma_G + \epsilon}, \qquad
+\mathcal{L}(\theta) = -\frac{1}{|T|} \sum_{t \in T} \hat A_i \, \log \pi_\theta(y_t \mid y_{<t})
+\;+\; \beta_{\text{KL}}\, \mathrm{KL}\!\left(\pi_\theta \,\|\, \pi_{\text{SFT}}\right),
+\quad \beta_{\text{KL}} = 0.01
+$$
+
+Groups whose rollouts all score the same carry no gradient; the fraction of such dead groups
+is logged every step.
 
 **RL details that mattered.** The SFT adapter is merged into the base weights before GRPO so
 that veRL's KL reference is the SFT policy rather than the untuned model. veRL's
